@@ -1,0 +1,4 @@
+﻿  node_visualisation.c
+c:\users\tgp\desktop\vixan\game\console_contact_list\console_contact_list\node_visualisation.c(33): error C2223: left of '->name' must point to struct/union
+c:\users\tgp\desktop\vixan\game\console_contact_list\console_contact_list\node_visualisation.c(33): error C2223: left of '->phone_nr' must point to struct/union
+c:\users\tgp\desktop\vixan\game\console_contact_list\console_contact_list\node_visualisation.c(33): error C2198: 'draw_contact': too few arguments for call
