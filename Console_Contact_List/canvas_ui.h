@@ -1,54 +1,67 @@
-#pragma once
 #include <allegro5/allegro.h>
+#include <allegro5/allegro_font.h>
+#pragma once
 
 typedef struct {
-	int x;
-	int y;
-}pos;
+	int x, y;
+}POS;
 
 typedef struct {
-	pos up_corner;
-	pos size;
+	POS upper, lower;
+}ANCHORS;
+
+
+typedef struct {
+	ANCHORS anchors;
 	ALLEGRO_COLOR color;
-}rectangle;
+}RECTANGLE;
 
 typedef struct {
-	pos up_corner;
+	ANCHORS anchors;
+	ALLEGRO_COLOR color;
 	int size;
+}LINE;
+
+typedef struct {
+	ALLEGRO_FONT *font;
+	ANCHORS anchors;
 	ALLEGRO_COLOR color;
-}text;
+	int flags;
+	char *text;
+}TEXT;
 
 typedef struct {
-	rectangle main_body;
-	rectangle color_bar;
-	text name_text;
-	text number_text;
-}contact;
+	ALLEGRO_BITMAP *image;
+	ANCHORS anchors;
+	int flags;
+}IMAGE;
 
 typedef struct {
-	int id;
-	contact contact_element;
+	ANCHORS anchors;
+	RECTANGLE main_body;
+	RECTANGLE color_body;
+	TEXT name_text;
+	TEXT number_text;
+	int count;
+}CONTACT;
 
-	contact_holder *next_element;
-}contact_holder;
-
-typedef struct {
-	int id;
-	text text_element;
-
-	text_holder *next_element;
-}text_holder;
-
-typedef struct {
-	int id;
-	rectangle rectangle_element;
-
-	rectangle_holder *next_element;
-}rectangle_holder;
+typedef union {
+	RECTANGLE rectangle;
+	LINE line;
+	TEXT text;
+	IMAGE image;
+	CONTACT contact;
+}DATA;
 
 typedef struct {
-	pos up_corner;
-	pos down_corner;
-	ALLEGRO_COLOR backgroud;
+	DATA data;
+	int type;
 
-};
+	struct CANVAS_ELEMENT *next;
+}CANVAS_ELEMENT;
+
+typedef struct {
+	ANCHORS anchors;
+
+	CANVAS_ELEMENT *elements;
+}CANVAS;

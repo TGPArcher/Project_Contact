@@ -5,6 +5,7 @@
 #include "allegro5\allegro_font.h"
 #include "allegro5\allegro_ttf.h"
 #include "allegro5\allegro_primitives.h"
+#include "canvas_ui.h"
 
 typedef struct {
 	int x;
@@ -14,7 +15,7 @@ typedef struct {
 void initializations();
 void create_display();
 void cls();
-void display_page();
+//void display_page();
 void draw_contact(int, int, char*, char*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, int);
 
 /*void main() {
@@ -61,16 +62,19 @@ void create_display() {
 		fprintf(stderr, "Could not create display\n");
 }
 
+// do it with a color parameter
 void cls() {
 	al_clear_to_color(al_map_rgb(168, 168, 168));
 }
 
-void display_page() {
+/*void display_page() {
+
 	al_draw_filled_rectangle(
 		0, 0,
 		500, 100,
 		al_map_rgb(145, 56, 60));
 	
+
 	al_draw_filled_rectangle(
 		0, 705,
 		500, 750,
@@ -93,7 +97,7 @@ void display_page() {
 	al_draw_bitmap(search_button, 406, 0, NULL);
 
 	//draw_contact(12, 110, "Sergiu", "068553218", NULL, NULL, NULL, NULL, 0);
-}
+}*/
 
 void draw_contact(
 	int x, int y,

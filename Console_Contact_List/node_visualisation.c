@@ -30,7 +30,7 @@ void print_list(struct Node **n) {
 }
 
 void contacts_display(struct Node **n) {
-	draw_contact(12, 110, n->name, n->phone_nr, NULL, NULL, NULL, NULL, 0);
+	draw_contact(12, 110, (*n)->name, (*n)->phone_nr, NULL, NULL, NULL, NULL, 0);
 
 	struct Node *tmp = (*n);
 	int count = 0;

@@ -1,4 +1,10 @@
-﻿  node_visualisation.c
-c:\users\tgp\desktop\vixan\game\console_contact_list\console_contact_list\node_visualisation.c(33): error C2223: left of '->name' must point to struct/union
-c:\users\tgp\desktop\vixan\game\console_contact_list\console_contact_list\node_visualisation.c(33): error C2223: left of '->phone_nr' must point to struct/union
-c:\users\tgp\desktop\vixan\game\console_contact_list\console_contact_list\node_visualisation.c(33): error C2198: 'draw_contact': too few arguments for call
+﻿  c_manipulation.c
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(73): error C2172: 'create_data': actual parameter is not a pointer: parameter 1
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(94): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(94): warning C4024: 'al_draw_bitmap': different types for formal and actual parameter 4
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(96): warning C4013: 'al_load_ttf_font' undefined; assuming extern returning int
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(98): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(98): warning C4024: 'al_draw_text': different types for formal and actual parameter 5
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(101): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(101): warning C4024: 'al_draw_bitmap': different types for formal and actual parameter 4
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(96): warning C4047: 'initializing': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'

@@ -13,14 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Canvas">
+      <UniqueIdentifier>{9f5fb656-f5c9-4a2d-b262-c2f781efda43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Node">
+      <UniqueIdentifier>{06688d78-0f31-4042-b07b-35f274fabadd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SL.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="node_creation.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="allegro.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -30,14 +30,23 @@
     <ClCompile Include="Loop.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="node_manipulation.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="node_visualisation.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="node_creation.c">
+      <Filter>Source Files\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="node_manipulation.c">
+      <Filter>Source Files\Node</Filter>
     </ClCompile>
     <ClCompile Include="node_search.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="SL.c">
+      <Filter>Source Files\Node</Filter>
+    </ClCompile>
+    <ClCompile Include="c_manipulation.c">
+      <Filter>Source Files\Canvas</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
