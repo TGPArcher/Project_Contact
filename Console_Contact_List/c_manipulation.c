@@ -17,8 +17,8 @@ RECTANGLE create_rectangle(ANCHORS anchors, ALLEGRO_COLOR color) {
 	return (RECTANGLE) { .anchors = anchors, .color = color };
 }
 
-LINE create_line(ANCHORS anchors, ALLEGRO_COLOR color) {
-	return (LINE) { .anchors = anchors, .color = color };
+LINE create_line(ANCHORS anchors, ALLEGRO_COLOR color, int size) {
+	return (LINE) { .anchors = anchors, .color = color, .size = size };
 }
 
 TEXT create_text(ALLEGRO_FONT *font, ANCHORS anchors, ALLEGRO_COLOR color, int flags, char *text) {
@@ -33,7 +33,7 @@ CONTACT create_contact(ANCHORS anchors, RECTANGLE main_body, RECTANGLE color_bod
 	return (CONTACT) { .anchors = anchors, .main_body = main_body, .color_body = color_body, .name_text = name_text, .number_text = number_text, .count = count };
 }
 
-DATA create_data(void *data, int type) {
+/*DATA create_data(void *data, int type) {
 	switch (type) {
 		case 0: 
 			return (DATA) { .rectangle = (*(RECTANGLE*)data) };
@@ -51,6 +51,26 @@ DATA create_data(void *data, int type) {
 			return (DATA) { .contact = (*(CONTACT*)data) };
 			break;
 	}
+}*/
+
+DATA create_r_data(RECTANGLE rectangle) {
+	return (DATA) { .rectangle = rectangle };
+}
+
+DATA create_l_data(LINE line) {
+	return (DATA) { .line = line };
+}
+
+DATA create_t_data(TEXT text) {
+	return (DATA) { .text = text };
+}
+
+DATA create_i_data(IMAGE image) {
+	return (DATA) { .image = image };
+}
+
+DATA create_c_data(CONTACT contact) {
+	return(DATA) { .contact = contact };
 }
 
 CANVAS_ELEMENT* create_canvas_element(DATA data, int type) {
@@ -65,30 +85,32 @@ CANVAS_ELEMENT* create_canvas_element(DATA data, int type) {
 
 CANVAS display_page() {
 	CANVAS canvas = { .anchors = create_anchors(create_pos(0, 0), create_pos(500, 100)) };
+	CANVAS_ELEMENT *last = NULL;
 
 	canvas.elements = create_canvas_element(
-		create_data(
+		create_r_data(
 			create_rectangle(
 				create_anchors(create_pos(0, 0), create_pos(500, 100)),
-				al_map_rgb(145, 56, 60)),
-			0),
+				al_map_rgb(145, 56, 60))),
 		0);
-	al_draw_filled_rectangle(
-		0, 0,
-		500, 100,
-		al_map_rgb(145, 56, 60));
+	last = canvas.elements;
 
+	last->next = create_canvas_element(
+		create_r_data(
+			create_rectangle(
+				create_anchors(create_pos(0, 705), create_pos(500, 750)),
+				al_map_rgb(145, 56, 60))),
+		0);
+	last = last->next;
 
-	al_draw_filled_rectangle(
-		0, 705,
-		500, 750,
-		al_map_rgb(145, 56, 60));
-
-	al_draw_line(
-		20, 69,
-		406, 69,
-		al_map_rgb(0, 0, 0),
-		2);
+	last->next = create_canvas_element(
+		create_l_data(
+			create_line(
+				create_anchors(create_pos(20, 69), create_pos(406, 69)),
+				al_map_rgb(0, 0, 0),
+				2)),
+		1);
+	last = last->next;
 
 	ALLEGRO_BITMAP *add_button = al_load_bitmap("add_button.png");
 	al_draw_bitmap(add_button, 380, 630, NULL);
