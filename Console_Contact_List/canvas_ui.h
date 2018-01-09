@@ -24,7 +24,7 @@ typedef struct {
 
 typedef struct {
 	ALLEGRO_FONT *font;
-	ANCHORS anchors;
+	POS anchor;
 	ALLEGRO_COLOR color;
 	int flags;
 	char *text;
@@ -39,7 +39,7 @@ typedef struct {
 typedef struct {
 	ANCHORS anchors;
 	RECTANGLE main_body;
-	RECTANGLE color_body;
+	RECTANGLE min_body;
 	TEXT name_text;
 	TEXT number_text;
 	int count;

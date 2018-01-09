@@ -1,14 +1,4 @@
-﻿  c_manipulation.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(103): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(104): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(110): error C2198: 'create_line': too few arguments for call
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(111): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(112): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(120): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(120): warning C4024: 'al_draw_bitmap': different types for formal and actual parameter 4
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(122): warning C4013: 'al_load_ttf_font' undefined; assuming extern returning int
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(124): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(124): warning C4024: 'al_draw_text': different types for formal and actual parameter 5
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(127): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(127): warning C4024: 'al_draw_bitmap': different types for formal and actual parameter 4
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(122): warning C4047: 'initializing': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
+﻿  c_draw.c
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_draw.c(66): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+  Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
+  Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)

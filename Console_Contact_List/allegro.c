@@ -15,22 +15,17 @@ typedef struct {
 void initializations();
 void create_display();
 void cls();
-//void display_page();
 void draw_contact(int, int, char*, char*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, int);
 
-/*void main() {
+void a_main() {
 	initializations();
 
 	create_display();
 
 	cls();
 
-	ui();
-
 	al_flip_display();
-
-	al_rest(8);
-}*/
+}
 
 void initializations() {
 	if (!al_init())

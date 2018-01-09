@@ -5,6 +5,8 @@
 #include "allegro5/allegro_primitives.h"
 #include "canvas_ui.h"
 
+extern void draw_canvas(CANVAS*);
+
 POS create_pos(int x, int y) {
 	return (POS) { .x = x, .y = y };
 }
@@ -21,8 +23,8 @@ LINE create_line(ANCHORS anchors, ALLEGRO_COLOR color, int size) {
 	return (LINE) { .anchors = anchors, .color = color, .size = size };
 }
 
-TEXT create_text(ALLEGRO_FONT *font, ANCHORS anchors, ALLEGRO_COLOR color, int flags, char *text) {
-	return (TEXT) { .font = font, .anchors = anchors, .color = color, .flags = flags, .text = text };
+TEXT create_text(ALLEGRO_FONT *font, POS anchor, ALLEGRO_COLOR color, int flags, char *text) {
+	return (TEXT) { .font = font, .anchor = anchor, .color = color, .flags = flags, .text = text };
 }
 
 IMAGE create_image(ALLEGRO_BITMAP *image, ANCHORS anchors, int flags) {
@@ -30,28 +32,8 @@ IMAGE create_image(ALLEGRO_BITMAP *image, ANCHORS anchors, int flags) {
 }
 
 CONTACT create_contact(ANCHORS anchors, RECTANGLE main_body, RECTANGLE color_body, TEXT name_text, TEXT number_text, int count) {
-	return (CONTACT) { .anchors = anchors, .main_body = main_body, .color_body = color_body, .name_text = name_text, .number_text = number_text, .count = count };
+	return (CONTACT) { .anchors = anchors, .main_body = main_body, .min_body = color_body, .name_text = name_text, .number_text = number_text, .count = count };
 }
-
-/*DATA create_data(void *data, int type) {
-	switch (type) {
-		case 0: 
-			return (DATA) { .rectangle = (*(RECTANGLE*)data) };
-			break;
-		case 1:
-			return (DATA) { .line = (*(LINE*)data) };
-			break;
-		case 2:
-			return (DATA) { .text = (*(TEXT*)data) };
-			break;
-		case 3:
-			return (DATA) { .image = (*(IMAGE*)data) };
-			break;
-		case 4:
-			return (DATA) { .contact = (*(CONTACT*)data) };
-			break;
-	}
-}*/
 
 DATA create_r_data(RECTANGLE rectangle) {
 	return (DATA) { .rectangle = rectangle };
@@ -84,7 +66,7 @@ CANVAS_ELEMENT* create_canvas_element(DATA data, int type) {
 }
 
 CANVAS display_page() {
-	CANVAS canvas = { .anchors = create_anchors(create_pos(0, 0), create_pos(500, 100)) };
+	CANVAS canvas = { .anchors = create_anchors(create_pos(0, 0), create_pos(500, 750)) };
 	CANVAS_ELEMENT *last = NULL;
 
 	canvas.elements = create_canvas_element(
@@ -112,15 +94,33 @@ CANVAS display_page() {
 		1);
 	last = last->next;
 
-	ALLEGRO_BITMAP *add_button = al_load_bitmap("add_button.png");
-	al_draw_bitmap(add_button, 380, 630, NULL);
+	last->next = create_canvas_element(
+		create_i_data(
+			create_image(
+				al_load_bitmap("add_button.png"),
+				create_anchors(create_pos(380, 630), create_pos(110, 110)),
+				NULL)),
+		3);
+	last = last->next;
 
-	ALLEGRO_FONT *title_font = al_load_ttf_font("javatext.ttf", 50, NULL);
+	last->next = create_canvas_element(
+		create_i_data(
+			create_image(
+				al_load_bitmap("search_button.png"),
+				create_anchors(create_pos(406, 0), create_pos(100, 100)),
+				NULL)),
+		3);
+	last = last->next;
 
-	al_draw_text(title_font, al_map_rgb(0, 0, 0), 30, 0, NULL, "CONTACTS");
+	last->next = create_canvas_element(
+		create_t_data(
+			create_text(
+				al_load_ttf_font("javatext.ttf", 50, NULL),
+				create_pos(30, 0),
+				al_map_rgb(0, 0, 0),
+				NULL,
+				"CONTACTS")),
+		2);
 
-	ALLEGRO_BITMAP *search_button = al_load_bitmap("search_button.png");
-	al_draw_bitmap(search_button, 406, 0, NULL);
-
-	//draw_contact(12, 110, "Sergiu", "068553218", NULL, NULL, NULL, NULL, 0);
+	draw_canvas(&canvas);
 }

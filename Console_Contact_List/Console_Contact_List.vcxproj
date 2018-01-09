@@ -155,6 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="allegro.c" />
+    <ClCompile Include="c_draw.c" />
     <ClCompile Include="c_manipulation.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="node_creation.c" />

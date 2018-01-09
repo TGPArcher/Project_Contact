@@ -1,5 +1,13 @@
-extern initializations();
+#include <allegro5/allegro.h>
+#include "canvas_ui.h"
 
-void main() {
-	initializations();
+extern void a_main();
+extern CANVAS display_page();
+
+int main() {
+	a_main();
+
+	display_page();
+
+	return 0;
 }

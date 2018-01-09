@@ -48,6 +48,9 @@
     <ClCompile Include="c_manipulation.c">
       <Filter>Source Files\Canvas</Filter>
     </ClCompile>
+    <ClCompile Include="c_draw.c">
+      <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h">
