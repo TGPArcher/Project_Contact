@@ -33,5 +33,5 @@ void draw_canvas(CANVAS *canvas) {
 
 	al_flip_display();
 
-	al_rest(15);
+	//al_rest(15);
 }

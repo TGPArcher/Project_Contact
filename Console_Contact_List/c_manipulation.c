@@ -80,7 +80,7 @@ ANCHORS recalculate_anchors(ANCHORS anchors, int count) {
 }
 
 POS recalculate_pos(POS anchors, int y) {
-	return (anchors = create_pos(anchors.x, anchors.y + y + 11));
+	return (anchors = create_pos(anchors.x, anchors.y + y));
 }
 
 CANVAS display_page() {
@@ -155,13 +155,13 @@ void print_list_to_canvas(CANVAS *canvas) {
 					al_map_rgb(120, 115, 130)),
 				create_text(
 					al_load_ttf_font("javatext.ttf", 25, NULL),
-					create_pos(22, 10),
+					create_pos(30, 10),
 					al_map_rgb(48, 48, 48),
 					NULL,
 					"Petru"),
 				create_text(
 					al_load_ttf_font("javatext.ttf", 25, NULL),
-					create_pos(22, 50),
+					create_pos(30, 50),
 					al_map_rgb(88, 88, 88),
 					NULL,
 					"068454141"),
@@ -179,13 +179,13 @@ void print_list_to_canvas(CANVAS *canvas) {
 					al_map_rgb(120, 115, 130)),
 				create_text(
 					al_load_ttf_font("javatext.ttf", 25, NULL),
-					create_pos(22, 10),
+					create_pos(30, 10),
 					al_map_rgb(48, 48, 48),
 					NULL,
 					"Petru"),
 				create_text(
 					al_load_ttf_font("javatext.ttf", 25, NULL),
-					create_pos(22, 50),
+					create_pos(30, 50),
 					al_map_rgb(88, 88, 88),
 					NULL,
 					"068454141"),

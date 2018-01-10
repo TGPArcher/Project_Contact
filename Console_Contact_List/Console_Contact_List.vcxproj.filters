@@ -57,6 +57,9 @@
     <ClCompile Include="c_draw_elements.c">
       <Filter>Source Files\Canvas</Filter>
     </ClCompile>
+    <ClCompile Include="c_events.c">
+      <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h">

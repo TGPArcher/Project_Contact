@@ -10,7 +10,6 @@ typedef struct {
 	POS upper, lower;
 }ANCHORS;
 
-
 typedef struct {
 	ANCHORS anchors;
 	ALLEGRO_COLOR color;
