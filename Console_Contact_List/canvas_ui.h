@@ -37,7 +37,6 @@ typedef struct {
 }IMAGE;
 
 typedef struct {
-	ANCHORS anchors;
 	RECTANGLE main_body;
 	RECTANGLE min_body;
 	TEXT name_text;

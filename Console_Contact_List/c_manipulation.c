@@ -1,11 +1,6 @@
 #include <stdlib.h>
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_font.h>
-#include "allegro5/allegro_image.h"
-#include "allegro5/allegro_primitives.h"
 #include "canvas_ui.h"
-
-extern void draw_canvas(CANVAS*);
+#include "c_manipulation.h"
 
 POS create_pos(int x, int y) {
 	return (POS) { .x = x, .y = y };
@@ -31,8 +26,8 @@ IMAGE create_image(ALLEGRO_BITMAP *image, ANCHORS anchors, int flags) {
 	return (IMAGE) { .image = image, .anchors = anchors, .flags = flags };
 }
 
-CONTACT create_contact(ANCHORS anchors, RECTANGLE main_body, RECTANGLE color_body, TEXT name_text, TEXT number_text, int count) {
-	return (CONTACT) { .anchors = anchors, .main_body = main_body, .min_body = color_body, .name_text = name_text, .number_text = number_text, .count = count };
+CONTACT create_contact(RECTANGLE main_body, RECTANGLE color_body, TEXT name_text, TEXT number_text, int count) {
+	return (CONTACT) { .main_body = main_body, .min_body = color_body, .name_text = name_text, .number_text = number_text, .count = count };
 }
 
 DATA create_r_data(RECTANGLE rectangle) {
@@ -63,6 +58,29 @@ CANVAS_ELEMENT* create_canvas_element(DATA data, int type) {
 	new_element->next = NULL;
 
 	return new_element;
+}
+
+CANVAS_ELEMENT* get_canvas_last_element(CANVAS *canvas) {
+	CANVAS_ELEMENT *tmp = canvas->elements;
+
+	while (tmp->next)
+		tmp = tmp->next;
+
+	return tmp;
+}
+
+ANCHORS recalculate_anchors(ANCHORS anchors, int count) {
+	POS size = create_pos(
+		anchors.lower.x - anchors.upper.x,
+		anchors.lower.y - anchors.upper.y);
+
+	return (anchors = create_anchors(
+		create_pos(anchors.upper.x, anchors.upper.y + (size.y + 11) * count),
+		create_pos(anchors.lower.x, anchors.lower.y + (size.y + 11) * count)));
+}
+
+POS recalculate_pos(POS anchors, int y) {
+	return (anchors = create_pos(anchors.x, anchors.y + y + 11));
 }
 
 CANVAS display_page() {
@@ -122,5 +140,55 @@ CANVAS display_page() {
 				"CONTACTS")),
 		2);
 
-	draw_canvas(&canvas);
+	return canvas;
+}
+
+void print_list_to_canvas(CANVAS *canvas) {
+	get_canvas_last_element(canvas)->next = create_canvas_element(
+		create_c_data(
+			create_contact(
+				create_rectangle(
+					create_anchors(create_pos(12, 110), create_pos(12 + 475, 110 + 100)),
+					al_map_rgb(174, 174, 174)),
+				create_rectangle(
+					create_anchors(create_pos(12, 110), create_pos(12 + 12, 110 + 100)),
+					al_map_rgb(120, 115, 130)),
+				create_text(
+					al_load_ttf_font("javatext.ttf", 25, NULL),
+					create_pos(22, 10),
+					al_map_rgb(48, 48, 48),
+					NULL,
+					"Petru"),
+				create_text(
+					al_load_ttf_font("javatext.ttf", 25, NULL),
+					create_pos(22, 50),
+					al_map_rgb(88, 88, 88),
+					NULL,
+					"068454141"),
+				0)),
+			4);
+
+	get_canvas_last_element(canvas)->next = create_canvas_element(
+		create_c_data(
+			create_contact(
+				create_rectangle(
+					create_anchors(create_pos(12, 110), create_pos(12 + 475, 110 + 100)),
+					al_map_rgb(174, 174, 174)),
+				create_rectangle(
+					create_anchors(create_pos(12, 110), create_pos(12 + 12, 110 + 100)),
+					al_map_rgb(120, 115, 130)),
+				create_text(
+					al_load_ttf_font("javatext.ttf", 25, NULL),
+					create_pos(22, 10),
+					al_map_rgb(48, 48, 48),
+					NULL,
+					"Petru"),
+				create_text(
+					al_load_ttf_font("javatext.ttf", 25, NULL),
+					create_pos(22, 50),
+					al_map_rgb(88, 88, 88),
+					NULL,
+					"068454141"),
+				1)),
+		4);
 }

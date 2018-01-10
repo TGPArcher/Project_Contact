@@ -13,16 +13,15 @@ typedef struct {
 }pos;
 
 void initializations();
-void create_display();
-void cls();
-void draw_contact(int, int, char*, char*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, int);
+void create_display(int, int, int, char*);
+void cls(int, int, int);
 
-void a_main() {
+void init_al() {
 	initializations();
 
-	create_display();
+	create_display(500, 750, 1, "Contact list");
 
-	cls();
+	cls(168, 168, 168);
 
 	al_flip_display();
 }
@@ -47,54 +46,24 @@ void initializations() {
 		fprintf(stderr, "could not load primitives addon\n");
 }
 
-void create_display() {
+void create_display(int w, int h, int flag, char *title) {
 	ALLEGRO_DISPLAY *display;
 
-	al_set_new_display_flags(ALLEGRO_WINDOWED);
-	al_set_new_window_title("Contact list");
+	al_set_new_display_flags(flag);
+	al_set_new_window_title(title);
 
-	if ((display = al_create_display(500, 750)) == NULL)
+	if ((display = al_create_display(w, h)) == NULL)
 		fprintf(stderr, "Could not create display\n");
 }
 
 // do it with a color parameter
-void cls() {
-	al_clear_to_color(al_map_rgb(168, 168, 168));
+void cls(int x, int y, int z) {
+	al_clear_to_color(al_map_rgb(x, y, z));
 }
 
-/*void display_page() {
+//draw_contact(12, 110, "Sergiu", "068553218", NULL, NULL, NULL, NULL, 0);
 
-	al_draw_filled_rectangle(
-		0, 0,
-		500, 100,
-		al_map_rgb(145, 56, 60));
-	
-
-	al_draw_filled_rectangle(
-		0, 705,
-		500, 750,
-		al_map_rgb(145, 56, 60));
-
-	al_draw_line(
-		20, 69,
-		406, 69,
-		al_map_rgb(0, 0, 0),
-		2);
-
-	ALLEGRO_BITMAP *add_button = al_load_bitmap("add_button.png");
-	al_draw_bitmap(add_button, 380, 630, NULL);
-
-	ALLEGRO_FONT *title_font = al_load_ttf_font("javatext.ttf", 50, NULL);
-
-	al_draw_text(title_font, al_map_rgb(0, 0, 0), 30, 0, NULL, "CONTACTS");
-
-	ALLEGRO_BITMAP *search_button = al_load_bitmap("search_button.png");
-	al_draw_bitmap(search_button, 406, 0, NULL);
-
-	//draw_contact(12, 110, "Sergiu", "068553218", NULL, NULL, NULL, NULL, 0);
-}*/
-
-void draw_contact(
+/*void draw_contact(
 	int x, int y,
 	char *name, char *number, 
 	ALLEGRO_COLOR *big_color, ALLEGRO_COLOR *small_color, ALLEGRO_COLOR *name_color, ALLEGRO_COLOR *number_color,
@@ -149,45 +118,4 @@ void draw_contact(
 	number_color == NULL ?
 		al_draw_textf(contact_font, _def_number_color, x + number_size.x, y + number_size.y, NULL, "%s", number) :
 		al_draw_textf(contact_font, *number_color, x + number_size.x, y + number_size.y, NULL, "%s", number);
-}
-
-void lf_main() {
-
-	al_clear_to_color(al_map_rgb(207, 236, 247));
-
-	ALLEGRO_BITMAP *search_image = al_load_bitmap("search_icon.png");
-	al_draw_bitmap(search_image, 0, 0, NULL);
-
-
-	ALLEGRO_EVENT_QUEUE *a_event;
-	if ((a_event = al_create_event_queue()) == NULL)
-		fprintf(stderr, "could not create an event queue!\n");
-
-	ALLEGRO_EVENT_SOURCE *a_event_source;
-	if ((a_event_source = al_get_keyboard_event_source()) == NULL)
-		fprintf(stderr, "could not get keyboard event source. keyboard was not installed!\n");
-
-	al_register_event_source(a_event, a_event_source);
-	ALLEGRO_EVENT _e;
-
-	ALLEGRO_FONT *a_font;
-	if ((a_font = al_create_builtin_font()) == NULL)
-		fprintf(stderr, "could not load font\n");
-	
-	while (1) {
-		al_wait_for_event(a_event, &_e);
-
-		if (_e.type == ALLEGRO_EVENT_KEY_CHAR) {
-			if (_e.keyboard.unichar == 'a')
-				al_flip_display();
-			else if (_e.keyboard.unichar == 'w')
-				al_draw_textf(a_font, al_map_rgb(65, 65, 65), 300, 50, ALLEGRO_ALIGN_CENTER, "Number of contacts %d", 5);
-			else if (_e.keyboard.unichar == 'c') {
-				al_draw_filled_circle(275, 500, 50, al_map_rgba(63, 205, 103, 100));
-				al_draw_filled_circle(225, 500, 50, al_map_rgba(84, 155, 46, 175));
-			}
-			else if (_e.keyboard.unichar == 'q')
-				break;
-		}
-	}
-}
+}*/

@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Node">
       <UniqueIdentifier>{06688d78-0f31-4042-b07b-35f274fabadd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Canvas">
+      <UniqueIdentifier>{6b89fa9b-eaad-4858-8ff4-9a2323e6da8c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="allegro.c">
@@ -51,6 +54,9 @@
     <ClCompile Include="c_draw.c">
       <Filter>Source Files\Canvas</Filter>
     </ClCompile>
+    <ClCompile Include="c_draw_elements.c">
+      <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h">
@@ -58,6 +64,12 @@
     </ClInclude>
     <ClInclude Include="canvas_ui.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="c_draw_elements.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="c_manipulation.h">
+      <Filter>Header Files\Canvas</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

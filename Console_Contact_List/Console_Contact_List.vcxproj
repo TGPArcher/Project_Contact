@@ -156,6 +156,7 @@
   <ItemGroup>
     <ClCompile Include="allegro.c" />
     <ClCompile Include="c_draw.c" />
+    <ClCompile Include="c_draw_elements.c" />
     <ClCompile Include="c_manipulation.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="node_creation.c" />
@@ -167,6 +168,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="canvas_ui.h" />
+    <ClInclude Include="c_draw_elements.h" />
+    <ClInclude Include="c_manipulation.h" />
     <ClInclude Include="list.h" />
   </ItemGroup>
   <ItemGroup>
