@@ -1,3 +1,14 @@
-﻿  c_events.c
+﻿  c_init_elements.c
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(58): warning C4013: 'al_load_ttf_font' undefined; assuming extern returning int
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(58): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(58): warning C4024: 'create_text': different types for formal and actual parameter 1
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(87): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(87): warning C4024: 'create_text': different types for formal and actual parameter 1
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(90): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(90): warning C4024: 'create_text': different types for formal and actual parameter 4
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(93): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(93): warning C4024: 'create_text': different types for formal and actual parameter 1
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(96): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(96): warning C4024: 'create_text': different types for formal and actual parameter 4
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)

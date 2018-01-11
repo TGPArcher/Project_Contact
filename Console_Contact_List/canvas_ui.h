@@ -59,7 +59,12 @@ typedef struct {
 }CANVAS_ELEMENT;
 
 typedef struct {
+	CANVAS_ELEMENT *elements;
+}LAYER;
+
+typedef struct {
 	ANCHORS anchors;
 
-	CANVAS_ELEMENT *elements;
+	int nr_of_layers;
+	LAYER *layers;
 }CANVAS;

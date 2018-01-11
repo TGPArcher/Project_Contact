@@ -23,15 +23,16 @@ void draw_element(CANVAS_ELEMENT *element) {
 }
 
 void draw_canvas(CANVAS *canvas) {
-	CANVAS_ELEMENT *tmp = canvas->elements;
 
-	while (tmp) {
-		draw_element(tmp);
+	for (int i = canvas->nr_of_layers - 1; i >= 0; i--) {
+		CANVAS_ELEMENT *tmp = canvas->layers[i].elements;
 
-		tmp = tmp->next;
+		while (tmp) {
+			draw_element(tmp);
+
+			tmp = tmp->next;
+		}
 	}
 
 	al_flip_display();
-
-	//al_rest(15);
 }
