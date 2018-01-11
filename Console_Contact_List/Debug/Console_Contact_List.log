@@ -1,14 +1,15 @@
-﻿  c_init_elements.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(58): warning C4013: 'al_load_ttf_font' undefined; assuming extern returning int
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(58): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(58): warning C4024: 'create_text': different types for formal and actual parameter 1
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(87): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(87): warning C4024: 'create_text': different types for formal and actual parameter 1
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(90): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(90): warning C4024: 'create_text': different types for formal and actual parameter 4
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(93): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(93): warning C4024: 'create_text': different types for formal and actual parameter 1
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(96): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(96): warning C4024: 'create_text': different types for formal and actual parameter 4
+﻿  c_manipulation.c
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(67): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(104): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(111): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(113): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(121): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(123): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(131): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(133): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(141): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(143): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(173): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(175): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)
