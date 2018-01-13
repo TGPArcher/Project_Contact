@@ -73,6 +73,7 @@ typedef struct {
 
 typedef struct {
 	ANCHORS anchors;
+	ALLEGRO_COLOR background;
 
 	int nr_of_layers;
 	LAYER *layers;

@@ -14,16 +14,11 @@ typedef struct {
 
 void initializations();
 void create_display(int, int, int, char*);
-void cls(int, int, int);
 
 void init_al() {
 	initializations();
 
 	create_display(500, 750, 1, "Contact list");
-
-	cls(168, 168, 168);
-
-	al_flip_display();
 }
 
 void initializations() {
@@ -57,9 +52,4 @@ void create_display(int w, int h, int flag, char *title) {
 
 	if ((display = al_create_display(w, h)) == NULL)
 		fprintf(stderr, "Could not create display\n");
-}
-
-// do it with a color parameter
-void cls(int x, int y, int z) {
-	al_clear_to_color(al_map_rgb(x, y, z));
 }

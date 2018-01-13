@@ -5,6 +5,7 @@
 #include "c_init_elements.h"
 
 extern void draw_canvas(CANVAS*);
+extern void cls(ALLEGRO_COLOR);
 
 void m_routine(ALLEGRO_EVENT_QUEUE*, CANVAS*);
 void on_click(ALLEGRO_EVENT, CANVAS*);
@@ -79,6 +80,7 @@ void on_hover(ALLEGRO_EVENT ev, CANVAS *canvas) {
 		// apply hover effect to new element
 		hover_effect(element, hover_color);
 
+		cls(canvas->background);
 		draw_canvas(canvas);
 		al_flip_display();
 	}

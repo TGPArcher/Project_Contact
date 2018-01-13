@@ -2,6 +2,11 @@
 #include "canvas_ui.h"
 #include "c_draw_elements.h"
 
+// do it with a color parameter
+void cls(ALLEGRO_COLOR color) {
+	al_clear_to_color(color);
+}
+
 void draw_element(CANVAS_ELEMENT *element) {
 	switch (element->type) {
 		case 0:
@@ -23,6 +28,7 @@ void draw_element(CANVAS_ELEMENT *element) {
 }
 
 void draw_canvas(CANVAS *canvas) {
+	cls(canvas->background);
 
 	for (int i = canvas->nr_of_layers - 1; i >= 0; i--) {
 		CANVAS_ELEMENT *tmp = canvas->layers[i].elements;

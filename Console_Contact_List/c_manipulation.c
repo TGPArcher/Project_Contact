@@ -11,7 +11,10 @@ CANVAS_ELEMENT* get_canvas_last_element(CANVAS *canvas, int layer) {
 }
 
 CANVAS display_page() {
-	CANVAS canvas = { .anchors = create_anchors(create_pos(0, 0), create_pos(500, 750)), .nr_of_layers = 3 };
+	CANVAS canvas = { 
+		.anchors = create_anchors(create_pos(0, 0), create_pos(500, 750)), 
+		.nr_of_layers = 3, 
+		.background = al_map_rgb(207, 207, 207) };
 	
 	canvas.layers = (LAYER*)malloc(sizeof(LAYER) * canvas.nr_of_layers);
 	for (int i = 0; i < canvas.nr_of_layers; i++)
