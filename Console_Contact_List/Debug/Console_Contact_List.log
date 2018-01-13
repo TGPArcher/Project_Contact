@@ -1,29 +1,24 @@
 ﻿  c_manipulation.c
 c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(8): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(39): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(40): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(42): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(43): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(45): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(46): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(48): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(49): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(51): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(72): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(74): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-  c_init_elements.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(116): warning C4013: 'al_load_ttf_font' undefined; assuming extern returning int
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(116): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(116): warning C4024: 'create_text': different types for formal and actual parameter 1
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(145): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(145): warning C4024: 'create_text': different types for formal and actual parameter 1
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(148): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(148): warning C4024: 'create_text': different types for formal and actual parameter 4
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(151): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(151): warning C4024: 'create_text': different types for formal and actual parameter 1
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(154): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(154): warning C4024: 'create_text': different types for formal and actual parameter 4
-  c_draw_elements.c
-  Generating Code...
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(22): warning C4020: 'e_init_rectangle': too many actual parameters
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(25): warning C4020: 'e_init_rectangle': too many actual parameters
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(25): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(26): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(28): warning C4020: 'e_init_line': too many actual parameters
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(28): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(29): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(31): warning C4020: 'e_init_image': too many actual parameters
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(31): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(32): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(34): warning C4020: 'e_init_image': too many actual parameters
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(34): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(35): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(37): warning C4020: 'e_init_text': too many actual parameters
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(37): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(50): warning C4020: 'e_init_contact': too many actual parameters
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(60): warning C4020: 'e_init_contact': too many actual parameters
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(60): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(62): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(97): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)

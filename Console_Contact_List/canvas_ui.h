@@ -3,6 +3,12 @@
 #pragma once
 
 typedef struct {
+	int raycast;
+	int scroll;
+	int hover;
+}INTERACTABLE;
+
+typedef struct {
 	int x, y;
 }POS;
 
@@ -54,6 +60,9 @@ typedef union {
 typedef struct {
 	DATA data;
 	int type;
+	int id;
+
+	INTERACTABLE interactable;
 
 	struct CANVAS_ELEMENT *next;
 }CANVAS_ELEMENT;

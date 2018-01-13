@@ -1,6 +1,7 @@
 #pragma once
 #include "canvas_ui.h"
 
+INTERACTABLE create_interactable(int, int, int);
 POS create_pos(int x, int y);
 ANCHORS create_anchors(POS up, POS low);
 LINE create_line(ANCHORS anchors, ALLEGRO_COLOR color, int size);
@@ -42,3 +43,5 @@ CANVAS_ELEMENT* e_init_contact(
 	ALLEGRO_COLOR, ALLEGRO_COLOR, ALLEGRO_COLOR, ALLEGRO_COLOR,
 	char*, char*,
 	int);
+
+POS recalculate_anchors(POS, POS, int);
