@@ -1,24 +1,6 @@
-﻿  c_manipulation.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(8): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(22): warning C4020: 'e_init_rectangle': too many actual parameters
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(25): warning C4020: 'e_init_rectangle': too many actual parameters
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(25): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(26): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(28): warning C4020: 'e_init_line': too many actual parameters
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(28): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(29): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(31): warning C4020: 'e_init_image': too many actual parameters
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(31): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(32): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(34): warning C4020: 'e_init_image': too many actual parameters
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(34): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(35): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(37): warning C4020: 'e_init_text': too many actual parameters
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(37): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(50): warning C4020: 'e_init_contact': too many actual parameters
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(60): warning C4020: 'e_init_contact': too many actual parameters
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(60): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(62): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(97): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+﻿  c_events.c
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_events.c(42): warning C4020: 'on_hover': too many actual parameters
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_events.c(57): warning C4029: declared formal parameter list different from definition
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_events.c(112): warning C4715: 'get_element_color': not all control paths return a value
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)
