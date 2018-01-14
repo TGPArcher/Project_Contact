@@ -51,21 +51,17 @@ void on_click(ALLEGRO_EVENT ev, CANVAS *canvas) {
 	printf("Click\n");
 	CANVAS_ELEMENT *test = raycast_canvas(canvas, create_pos(ev.mouse.x, ev.mouse.y));
 
-	if (test)
-		printf("-------------------->  %d\n", test->type);
+	
+	select_element(test);
+	cls(canvas->background);
+	draw_canvas(canvas);
+	al_flip_display();
 }
 
 void on_hover(ALLEGRO_EVENT ev, CANVAS *canvas) {
 
-	static init = 1;
-	static ALLEGRO_COLOR hover_color;
-	static ALLEGRO_COLOR last_color;
-
-	if (init) {
-		hover_color = al_map_rgb(227, 225, 232);
-		last_color = al_map_rgba(0, 0, 0, 0);
-		init = 0;
-	}
+	static ALLEGRO_COLOR hover_color = { .r = 227,.g = 225,.b = 232,.a = 255 };
+	static ALLEGRO_COLOR last_color = { .r = 0,.g = 0,.b = 0,.a = 0 };
 
 	static CANVAS_ELEMENT *last_element = NULL;
 	CANVAS_ELEMENT *element = raycast_canvas(canvas, create_pos(ev.mouse.x, ev.mouse.y));
@@ -87,7 +83,6 @@ void on_hover(ALLEGRO_EVENT ev, CANVAS *canvas) {
 }
 
 void on_scroll(ALLEGRO_EVENT ev, CANVAS *canvas) {
-	printf("Scroll\n");
 	CANVAS_ELEMENT *tmp = NULL;
 
 	for (int i = 0; i < canvas->nr_of_layers; i++) {

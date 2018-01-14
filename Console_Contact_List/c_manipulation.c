@@ -2,6 +2,47 @@
 #include "c_init_elements.h"
 #include "list.h"
 
+CANVAS_ELEMENT *selected_element = NULL;
+
+void select_element(CANVAS_ELEMENT *element) {
+	select_effect(selected_element, 1);
+	selected_element = element;
+	if (selected_element)
+		select_effect(selected_element, -1);
+}
+
+void select_effect(CANVAS_ELEMENT *element, int operation) {
+	static ALLEGRO_COLOR select_color = { .r = 50,.g = 50,.b = 50,.a = 255 };
+
+	if(element)
+		switch (element->type) {
+			// 	case 0:
+			// 		
+			// 		break;
+			// 	case 1:
+			// 		
+			// 		break;
+			// 	case 2:
+			// 
+			// 		break;
+			// 	case 3:
+			// 		
+			// 		break;
+		case 4:
+			element->data.contact.min_body.color = 
+				blend_colors(element->data.contact.min_body.color, select_color, operation);
+			break;
+		}
+}
+
+ALLEGRO_COLOR blend_colors(ALLEGRO_COLOR color1, ALLEGRO_COLOR color2, int operation) {
+	color1.r += color2.r * operation;
+	color1.g += color2.g * operation;
+	color1.b += color2.b * operation;
+
+	return color1;
+}
+
 CANVAS_ELEMENT* get_canvas_last_element(CANVAS *canvas, int layer) {
 	CANVAS_ELEMENT *tmp = canvas->layers[layer].elements;
 
