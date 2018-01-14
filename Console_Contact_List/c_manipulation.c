@@ -1,5 +1,6 @@
 #include "c_manipulation.h"
 #include "c_init_elements.h"
+#include "list.h"
 
 CANVAS_ELEMENT* get_canvas_last_element(CANVAS *canvas, int layer) {
 	CANVAS_ELEMENT *tmp = canvas->layers[layer].elements;
@@ -22,47 +23,61 @@ CANVAS display_page() {
 
 	CANVAS_ELEMENT *last = NULL;
 
-	canvas.layers[0].elements = e_init_rectangle(0, 0, 500, 100, al_map_rgb(145, 56, 60), create_interactable(0, 0, 0));
+	canvas.layers[0].elements = e_init_rectangle(0, 0, 500, 100, al_map_rgb(145, 56, 60), 
+		create_interactable(0, 0), NULL);
 	last = canvas.layers[0].elements;
 
-	last->next = e_init_rectangle(0, 705, 500, 750, al_map_rgb(145, 56, 60), create_interactable(0, 0, 0));
+	last->next = e_init_rectangle(0, 705, 500, 750, al_map_rgb(145, 56, 60), 
+		create_interactable(0, 0), NULL);
 	last = last->next;
 
-	last->next = e_init_line(20, 69, 406, 69, al_map_rgb(0, 0, 0), 2, create_interactable(0, 0, 0));
+	last->next = e_init_line(20, 69, 406, 69, al_map_rgb(0, 0, 0), 2, 
+		create_interactable(0, 0), NULL);
 	last = last->next;
 
-	last->next = e_init_image("add_button.png", 380, 630, 110, 110, 0, create_interactable(0, 0, 0));
+	last->next = e_init_image("add_button.png", 380, 630, 110, 110, 0, 
+		create_interactable(0, 0), NULL);
 	last = last->next;
 
-	last->next = e_init_image("search_button.png", 406, 0, 100, 100, 0, create_interactable(0, 0, 0));
+	last->next = e_init_image("search_button.png", 406, 0, 100, 100, 0, 
+		create_interactable(0, 0), NULL);
 	last = last->next;
 
-	last->next = e_init_text("javatext.ttf", 50, 30, 0, al_map_rgb(0, 0, 0), 0, "CONTACTS", create_interactable(0, 0, 0));
+	last->next = e_init_text("javatext.ttf", 50, 30, 0, al_map_rgb(0, 0, 0), 0, "CONTACTS", 
+		create_interactable(0, 0), NULL);
 
 	return canvas;
 }
 
-void print_list_to_canvas(CANVAS *canvas) {
+void print_list_to_canvas(CANVAS *canvas, struct Node *list) {
 	CANVAS_ELEMENT *last = NULL;
+	struct Node *tmp = list;
+	int count = 0;
 
 	canvas->layers[2].elements = e_init_contact(
 		create_pos(12, 110), create_pos(30, 10), create_pos(30, 50),
 		al_map_rgb(174, 174, 174), al_map_rgb(120, 115, 130), al_map_rgb(48, 48, 48), al_map_rgb(88, 88, 88),
-		"Petru", "068454141",
-		0,
-		create_interactable(1, 1, 1));
+		tmp->name, tmp->phone_nr,
+		count,
+		create_interactable(1, 1),
+		set_scroll_rect(create_pos(0, 100), create_pos(500, 705)));
 
-	last = get_canvas_last_element(canvas, 2);
+	last = canvas->layers[2].elements;
+	tmp = tmp->next_node;
+	count++;
 
-	for (int i = 1; i < 8; i++) {
+	while (tmp) {
 		last->next = e_init_contact(
 			create_pos(12, 110), create_pos(30, 10), create_pos(30, 50),
 			al_map_rgb(174, 174, 174), al_map_rgb(120, 115, 130), al_map_rgb(48, 48, 48), al_map_rgb(88, 88, 88),
-			"Petru", "068454141",
-			i,
-			create_interactable(1, 1, 1));
+			tmp->name, tmp->phone_nr,
+			count,
+			create_interactable(1, 1),
+			set_scroll_rect(create_pos(0, 100), create_pos(500, 705)));
 
 		last = last->next;
+		tmp = tmp->next_node;
+		count++;
 	}
 }
 
@@ -102,4 +117,33 @@ CANVAS_ELEMENT* raycast_canvas(CANVAS *canvas, POS cursor_pos) {
 	}
 
 	return tmp;
+}
+
+void translate_element(CANVAS_ELEMENT *element, int change) {
+	change *= 10;
+
+	switch (element->type) {
+	case 0:
+		element->data.rectangle.anchors.upper.y += change;
+		element->data.rectangle.anchors.lower.y += change;
+		break;
+	case 1:
+		element->data.rectangle.anchors.upper.y += change;
+		element->data.rectangle.anchors.lower.y += change;
+		break;
+	case 2:
+		element->data.text.anchor.y += change;
+		break;
+	case 3:
+		element->data.image.anchors.upper.y += change;
+		break;
+	case 4:
+		element->data.contact.main_body.anchors.upper.y += change;
+		element->data.contact.main_body.anchors.lower.y += change;
+		element->data.contact.min_body.anchors.upper.y += change;
+		element->data.contact.min_body.anchors.lower.y += change;
+		element->data.contact.name_text.anchor.y += change;
+		element->data.contact.number_text.anchor.y += change;
+		break;
+	}
 }

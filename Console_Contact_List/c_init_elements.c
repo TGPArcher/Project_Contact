@@ -2,8 +2,12 @@
 
 static unsigned int _elements_id = 0;
 
-INTERACTABLE create_interactable(int ray, int scroll, int hover) {
-	return (INTERACTABLE) { .raycast = ray, .scroll = scroll, .hover = hover };
+INTERACTABLE create_interactable(int ray, int hover) {
+	return (INTERACTABLE) { .raycast = ray, .hover = hover};
+}
+
+ANCHORS* set_scroll_rect(POS up, POS down) {
+	return &(ANCHORS) { .upper = up, .lower = down };
 }
 
 POS create_pos(int x, int y) {
@@ -54,13 +58,14 @@ DATA create_c_data(CONTACT contact) {
 	return(DATA) { .contact = contact };
 }
 
-CANVAS_ELEMENT* create_canvas_element(DATA data, INTERACTABLE interactable, int type) {
+CANVAS_ELEMENT* create_canvas_element(DATA data, INTERACTABLE interactable, ANCHORS *scroll, int type) {
 	CANVAS_ELEMENT *new_element = (CANVAS_ELEMENT*)malloc(sizeof(CANVAS_ELEMENT));
 
 	new_element->id = (_elements_id++);
 	new_element->type = type;
 	new_element->data = data;
 	new_element->interactable = interactable;
+	new_element->scrollable = scroll;
 	new_element->next = NULL;
 
 	return new_element;
@@ -69,7 +74,8 @@ CANVAS_ELEMENT* create_canvas_element(DATA data, INTERACTABLE interactable, int 
 CANVAS_ELEMENT* e_init_rectangle(
 	int x1, int y1, int x2, int y2,
 	ALLEGRO_COLOR color,
-	INTERACTABLE interactable)
+	INTERACTABLE interactable,
+	ANCHORS *scroll)
 {
 	CANVAS_ELEMENT *element = create_canvas_element(
 		create_r_data(
@@ -77,6 +83,7 @@ CANVAS_ELEMENT* e_init_rectangle(
 				create_anchors(create_pos(x1, y1), create_pos(x2, y2)),
 				color)),
 		interactable,
+		scroll,
 		0);
 
 	return element;
@@ -86,7 +93,8 @@ CANVAS_ELEMENT* e_init_line(
 	int x1, int y1, int x2, int y2,
 	ALLEGRO_COLOR color,
 	int thickness,
-	INTERACTABLE interactable)
+	INTERACTABLE interactable,
+	ANCHORS *scroll)
 {
 	CANVAS_ELEMENT *element = create_canvas_element(
 		create_l_data(
@@ -95,6 +103,7 @@ CANVAS_ELEMENT* e_init_line(
 				color,
 				thickness)),
 		interactable,
+		scroll,
 		1);
 
 	return element;
@@ -104,7 +113,8 @@ CANVAS_ELEMENT* e_init_image(
 	char *name,
 	int x, int y, int w, int h,
 	int flags,
-	INTERACTABLE interactable)
+	INTERACTABLE interactable,
+	ANCHORS *scroll)
 {
 	CANVAS_ELEMENT *element = create_canvas_element(
 		create_i_data(
@@ -113,6 +123,7 @@ CANVAS_ELEMENT* e_init_image(
 				create_anchors(create_pos(x, y), create_pos(w, h)),
 				flags)),
 		interactable,
+		scroll,
 		3);
 
 	return element;
@@ -123,7 +134,8 @@ CANVAS_ELEMENT* e_init_text(
 	int x, int y,
 	ALLEGRO_COLOR color,
 	int flags, char *text,
-	INTERACTABLE interactable)
+	INTERACTABLE interactable,
+	ANCHORS *scroll)
 {
 	CANVAS_ELEMENT *element = create_canvas_element(
 		create_t_data(
@@ -134,6 +146,7 @@ CANVAS_ELEMENT* e_init_text(
 				flags,
 				text)),
 		interactable,
+		scroll,
 		2);
 
 	return element;
@@ -144,7 +157,8 @@ CANVAS_ELEMENT* e_init_contact(
 	ALLEGRO_COLOR M_color, ALLEGRO_COLOR m_color, ALLEGRO_COLOR name_color, ALLEGRO_COLOR nr_color,
 	char *name, char *number,
 	int count,
-	INTERACTABLE interactable)
+	INTERACTABLE interactable,
+	ANCHORS *scroll)
 {
 	static POS main_size = { .x = 475,.y = 100 };
 	static POS min_size = { .x = 12,.y = 100 };
@@ -174,6 +188,7 @@ CANVAS_ELEMENT* e_init_contact(
 					number),
 				count)),
 		interactable,
+		scroll,
 		4);
 
 	return element;

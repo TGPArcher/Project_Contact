@@ -4,7 +4,6 @@
 
 typedef struct {
 	int raycast;
-	int scroll;
 	int hover;
 }INTERACTABLE;
 
@@ -63,6 +62,7 @@ typedef struct {
 	int id;
 
 	INTERACTABLE interactable;
+	ANCHORS *scrollable;
 
 	struct CANVAS_ELEMENT *next;
 }CANVAS_ELEMENT;

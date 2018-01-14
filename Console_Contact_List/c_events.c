@@ -9,8 +9,8 @@ extern void cls(ALLEGRO_COLOR);
 
 void m_routine(ALLEGRO_EVENT_QUEUE*, CANVAS*);
 void on_click(ALLEGRO_EVENT, CANVAS*);
-void on_hover(ALLEGRO_EVENT);
-void on_scroll(ALLEGRO_EVENT);
+void on_hover(ALLEGRO_EVENT, CANVAS*);
+void on_scroll(ALLEGRO_EVENT, CANVAS*);
 
 ALLEGRO_COLOR get_element_color(CANVAS_ELEMENT*);
 void hover_effect(CANVAS_ELEMENT*, ALLEGRO_COLOR);
@@ -42,7 +42,7 @@ void m_routine(ALLEGRO_EVENT_QUEUE *event_queue, CANVAS *canvas) {
 			if (ev.mouse.dx || ev.mouse.dy)
 				on_hover(ev, canvas);
 			else if (ev.mouse.dz)
-				on_scroll(ev);
+				on_scroll(ev, canvas);
 		}
 	}
 }
@@ -86,8 +86,25 @@ void on_hover(ALLEGRO_EVENT ev, CANVAS *canvas) {
 	}
 }
 
-void on_scroll(ALLEGRO_EVENT ev) {
+void on_scroll(ALLEGRO_EVENT ev, CANVAS *canvas) {
 	printf("Scroll\n");
+	CANVAS_ELEMENT *tmp = NULL;
+
+	for (int i = 0; i < canvas->nr_of_layers; i++) {
+		tmp = canvas->layers[i].elements;
+
+		while (tmp) {
+			if (tmp->scrollable) {
+				translate_element(tmp, ev.mouse.dz);
+			}
+
+			tmp = tmp->next;
+		}
+	}
+
+	cls(canvas->background);
+	draw_canvas(canvas);
+	al_flip_display();
 }
 
 ALLEGRO_COLOR get_element_color(CANVAS_ELEMENT *element) {

@@ -1,7 +1,8 @@
 #pragma once
 #include "canvas_ui.h"
 
-INTERACTABLE create_interactable(int, int, int);
+INTERACTABLE create_interactable(int, int);
+ANCHORS* set_scroll_rect(POS, POS);
 POS create_pos(int x, int y);
 ANCHORS create_anchors(POS up, POS low);
 LINE create_line(ANCHORS anchors, ALLEGRO_COLOR color, int size);
@@ -16,32 +17,42 @@ DATA create_t_data(TEXT text);
 DATA create_i_data(IMAGE image);
 DATA create_c_data(CONTACT contact);
 
-CANVAS_ELEMENT* create_canvas_element(DATA data, int type);
+CANVAS_ELEMENT* create_canvas_element(DATA, INTERACTABLE, ANCHORS*, int);
 
 CANVAS_ELEMENT* e_init_rectangle(
 	int, int, int, int,
-	ALLEGRO_COLOR);
+	ALLEGRO_COLOR,
+	INTERACTABLE,
+	ANCHORS*);
 
 CANVAS_ELEMENT* e_init_line(
 	int, int, int, int,
 	ALLEGRO_COLOR,
-	int);
+	int,
+	INTERACTABLE,
+	ANCHORS*);
 
 CANVAS_ELEMENT* e_init_image(
 	char*,
 	int, int, int, int,
-	int);
+	int,
+	INTERACTABLE,
+	ANCHORS*);
 
 CANVAS_ELEMENT* e_init_text(
 	char*, int,
 	int, int,
 	ALLEGRO_COLOR,
-	int, char*);
+	int, char*,
+	INTERACTABLE,
+	ANCHORS*);
 
 CANVAS_ELEMENT* e_init_contact(
 	POS, POS, POS,
 	ALLEGRO_COLOR, ALLEGRO_COLOR, ALLEGRO_COLOR, ALLEGRO_COLOR,
 	char*, char*,
-	int);
+	int,
+	INTERACTABLE,
+	ANCHORS*);
 
 POS recalculate_anchors(POS, POS, int);
