@@ -7,7 +7,11 @@ INTERACTABLE create_interactable(int ray, int hover) {
 }
 
 ANCHORS* set_scroll_rect(POS up, POS down) {
-	return &(ANCHORS) { .upper = up, .lower = down };
+	ANCHORS* scroll_rect = (ANCHORS*)malloc(sizeof(ANCHORS));
+	scroll_rect->upper = up;
+	scroll_rect->lower = down;
+
+	return scroll_rect;
 }
 
 POS create_pos(int x, int y) {

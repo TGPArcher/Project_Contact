@@ -5,7 +5,6 @@
 #include "c_init_elements.h"
 
 extern void draw_canvas(CANVAS*);
-extern void cls(ALLEGRO_COLOR);
 
 void m_routine(ALLEGRO_EVENT_QUEUE*, CANVAS*);
 void on_click(ALLEGRO_EVENT, CANVAS*);
@@ -48,14 +47,11 @@ void m_routine(ALLEGRO_EVENT_QUEUE *event_queue, CANVAS *canvas) {
 }
 
 void on_click(ALLEGRO_EVENT ev, CANVAS *canvas) {
-	printf("Click\n");
 	CANVAS_ELEMENT *test = raycast_canvas(canvas, create_pos(ev.mouse.x, ev.mouse.y));
 
 	
 	select_element(test);
-	cls(canvas->background);
 	draw_canvas(canvas);
-	al_flip_display();
 }
 
 void on_hover(ALLEGRO_EVENT ev, CANVAS *canvas) {
@@ -76,9 +72,7 @@ void on_hover(ALLEGRO_EVENT ev, CANVAS *canvas) {
 		// apply hover effect to new element
 		hover_effect(element, hover_color);
 
-		cls(canvas->background);
 		draw_canvas(canvas);
-		al_flip_display();
 	}
 }
 
@@ -90,16 +84,16 @@ void on_scroll(ALLEGRO_EVENT ev, CANVAS *canvas) {
 
 		while (tmp) {
 			if (tmp->scrollable) {
-				translate_element(tmp, ev.mouse.dz);
+				if ((ev.mouse.x >= tmp->scrollable->upper.x && ev.mouse.x <= tmp->scrollable->lower.x) &&
+					(ev.mouse.y >= tmp->scrollable->upper.y && ev.mouse.y <= tmp->scrollable->lower.y))
+					translate_element(tmp, ev.mouse.dz);
 			}
 
 			tmp = tmp->next;
 		}
 	}
 
-	cls(canvas->background);
 	draw_canvas(canvas);
-	al_flip_display();
 }
 
 ALLEGRO_COLOR get_element_color(CANVAS_ELEMENT *element) {

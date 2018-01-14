@@ -1,21 +1,18 @@
-﻿  c_manipulation.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(50): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(72): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(73): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(76): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(77): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(80): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(81): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(84): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(85): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(88): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(93): warning C4029: declared formal parameter list different from definition
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(117): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(119): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(156): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+﻿  c_init_elements.c
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(147): warning C4013: 'al_load_ttf_font' undefined; assuming extern returning int
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(147): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(147): warning C4024: 'create_text': different types for formal and actual parameter 1
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(182): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(182): warning C4024: 'create_text': different types for formal and actual parameter 1
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(185): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(185): warning C4024: 'create_text': different types for formal and actual parameter 4
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(188): warning C4047: 'function': 'ALLEGRO_FONT *' differs in levels of indirection from 'int'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(188): warning C4024: 'create_text': different types for formal and actual parameter 1
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(191): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(191): warning C4024: 'create_text': different types for formal and actual parameter 4
   c_events.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_events.c(96): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_events.c(93): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
   Generating Code...
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_events.c(126): warning C4715: 'get_element_color': not all control paths return a value
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_events.c(121): warning C4715: 'get_element_color': not all control paths return a value
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)

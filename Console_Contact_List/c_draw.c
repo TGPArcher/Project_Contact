@@ -2,7 +2,6 @@
 #include "canvas_ui.h"
 #include "c_draw_elements.h"
 
-// do it with a color parameter
 void cls(ALLEGRO_COLOR color) {
 	al_clear_to_color(color);
 }
