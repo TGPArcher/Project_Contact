@@ -42,6 +42,14 @@ CONTACT create_contact(RECTANGLE main_body, RECTANGLE color_body, TEXT name_text
 	return (CONTACT) { .main_body = main_body, .min_body = color_body, .name_text = name_text, .number_text = number_text, .count = count };
 }
 
+I_BUTTON create_i_button(IMAGE image, ALLEGRO_BITMAP *hover, ALLEGRO_BITMAP *click) {
+	return (I_BUTTON) { .image = image, .hover = hover, .click = click };
+}
+
+T_BUTTON create_t_button(TEXT text, RECTANGLE margin, RECTANGLE background) {
+	return (T_BUTTON) { .text = text, .margin = margin, .background = background };
+}
+
 DATA create_r_data(RECTANGLE rectangle) {
 	return (DATA) { .rectangle = rectangle };
 }
@@ -60,6 +68,14 @@ DATA create_i_data(IMAGE image) {
 
 DATA create_c_data(CONTACT contact) {
 	return(DATA) { .contact = contact };
+}
+
+DATA create_ib_data(I_BUTTON button) {
+	return (DATA) { .i_button = button };
+}
+
+DATA create_tb_data(T_BUTTON button) {
+	return (DATA) { .t_button = button };
 }
 
 CANVAS_ELEMENT* create_canvas_element(DATA data, INTERACTABLE interactable, ANCHORS *scroll, int type) {
@@ -194,6 +210,57 @@ CANVAS_ELEMENT* e_init_contact(
 		interactable,
 		scroll,
 		4);
+
+	return element;
+}
+
+CANVAS_ELEMENT* e_init_ibutton(
+	char *normal, char *hover, char *click,
+	ANCHORS pos_size,
+	int flags,
+	INTERACTABLE interactable,
+	ANCHORS *scroll) 
+{
+	CANVAS_ELEMENT *element = create_canvas_element(
+		create_ib_data(
+			create_i_button(
+				create_image(
+					normal,
+					pos_size,
+					flags),
+				hover,
+				click)),
+		create_interactable(1, 1),
+		scroll,
+		5);
+
+	return element;
+}
+
+CANVAS_ELEMENT* e_init_tbutton(
+	char *font, int font_size, char *text, ALLEGRO_COLOR text_color,
+	ANCHORS margin, ALLEGRO_COLOR margin_color,
+	ANCHORS body, ALLEGRO_COLOR body_color,
+	ANCHORS *scroll) 
+{
+	CANVAS_ELEMENT *element = create_canvas_element(
+		create_tb_data(
+			create_t_button(
+				create_text(
+					al_load_ttf_font(font, font_size, 0),
+					create_pos(0, 0),
+					text_color,
+					0,
+					text),
+				create_rectangle(
+					margin,
+					margin_color),
+				create_rectangle(
+					body,
+					body_color))),
+		create_interactable(1, 1),
+		scroll,
+		6);
 
 	return element;
 }

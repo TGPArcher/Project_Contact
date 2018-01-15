@@ -48,12 +48,30 @@ typedef struct {
 	int count;
 }CONTACT;
 
+typedef struct {
+	IMAGE image;
+	ALLEGRO_BITMAP *hover;
+	ALLEGRO_BITMAP *click;
+
+//  pointer to calling funcion
+}I_BUTTON;
+
+typedef struct {
+	TEXT text;
+	RECTANGLE margin;
+	RECTANGLE background;
+
+//  pointer to calling function
+}T_BUTTON;
+
 typedef union {
 	RECTANGLE rectangle;
 	LINE line;
 	TEXT text;
 	IMAGE image;
 	CONTACT contact;
+	I_BUTTON i_button;
+	T_BUTTON t_button;
 }DATA;
 
 typedef struct {
