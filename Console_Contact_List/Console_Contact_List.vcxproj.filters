@@ -22,6 +22,9 @@
     <Filter Include="Header Files\Canvas">
       <UniqueIdentifier>{6b89fa9b-eaad-4858-8ff4-9a2323e6da8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Button functions%255c">
+      <UniqueIdentifier>{0da4ebb0-8a7c-4dcc-be97-e4d81232a5fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="allegro.c">
@@ -62,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="c_init_elements.c">
       <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse_functions.c">
+      <Filter>Source Files\Button functions%255c</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

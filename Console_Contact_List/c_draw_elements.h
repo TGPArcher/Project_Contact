@@ -13,3 +13,4 @@ void draw_line(LINE line);
 void draw_text(TEXT text);
 void draw_image(IMAGE image);
 void draw_contact(CONTACT contact);
+void draw_ibutton(I_BUTTON i_button);

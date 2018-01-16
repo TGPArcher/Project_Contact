@@ -46,3 +46,7 @@ void draw_contact(CONTACT contact) {
 
 	draw_text(contact.number_text);
 }
+
+void draw_ibutton(I_BUTTON i_button) {
+	draw_image(i_button.image);
+}

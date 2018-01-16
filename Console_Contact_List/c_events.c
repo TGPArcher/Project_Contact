@@ -108,12 +108,15 @@ ALLEGRO_COLOR get_element_color(CANVAS_ELEMENT *element) {
 		case 2:
 			return element->data.text.color;
 			break;
-			// 			case 3: - images have no color
-			// 				return ?
-			// 				break;
+// 		case 3: -images have no color
+// 			return ?
+// 			break;
 		case 4:
 			return element->data.contact.main_body.color;
 			break;
+// 		case 5: -buttons with images have no color
+// 			return ?
+// 			break;
 		}
 	else
 		return (ALLEGRO_COLOR) { .r = 0, .g = 0, .b = 0 };
@@ -136,6 +139,11 @@ void hover_effect(CANVAS_ELEMENT *element, ALLEGRO_COLOR color) {
 // 				break;
 			case 4:
 				element->data.contact.main_body.color = color;
+				break;
+			case 5:
+				ALLEGRO_BITMAP *tmp_bitmap = element->data.i_button.image.image;
+				element->data.i_button.image.image = element->data.i_button.hover;
+				element->data.i_button.hover = tmp_bitmap;
 				break;
 		}
 }

@@ -2,13 +2,23 @@
 #include "c_init_elements.h"
 #include "list.h"
 
+extern void modify();
+
 CANVAS_ELEMENT *selected_element = NULL;
 
 void select_element(CANVAS_ELEMENT *element) {
 	select_effect(selected_element, 1);
+
 	selected_element = element;
-	if (selected_element)
+	if (selected_element) {
 		select_effect(selected_element, -1);
+
+		if (selected_element->type == 5)
+			selected_element->data.i_button.f();
+		if (selected_element->type == 6)
+			selected_element->data.t_button.f();
+	}
+
 }
 
 void select_effect(CANVAS_ELEMENT *element, int operation) {
@@ -32,6 +42,11 @@ void select_effect(CANVAS_ELEMENT *element, int operation) {
 			element->data.contact.min_body.color = 
 				blend_colors(element->data.contact.min_body.color, select_color, operation);
 			break;
+// 		case 5: - is troublesome for now
+// 			ALLEGRO_BITMAP *tmp_bitmap = element->data.i_button.image.image;
+// 			element->data.i_button.image.image = element->data.i_button.click;
+// 			element->data.i_button.click = tmp_bitmap;
+// 			break;
 		}
 }
 
@@ -50,6 +65,10 @@ CANVAS_ELEMENT* get_canvas_last_element(CANVAS *canvas, int layer) {
 		tmp = tmp->next;
 
 	return tmp;
+}
+
+void do_it() {
+	printf("It works\n");
 }
 
 CANVAS display_page() {
@@ -76,8 +95,14 @@ CANVAS display_page() {
 		create_interactable(0, 0), NULL);
 	last = last->next;
 
-	last->next = e_init_image("add_button.png", 380, 630, 110, 110, 0, 
-		create_interactable(0, 0), NULL);
+	last->next = e_init_ibutton(
+		"add_button_0.png", "add_button_1.png", "add_button_2.png",
+		create_anchors(create_pos(380, 630), create_pos(110, 110)),
+		0,
+		create_interactable(1, 1),
+		create_anchors(create_pos(380, 630), create_pos(490, 740)),
+		&modify,
+		NULL);
 	last = last->next;
 
 	last->next = e_init_image("search_button.png", 406, 0, 100, 100, 0, 
@@ -138,11 +163,20 @@ CANVAS_ELEMENT* raycast_canvas(CANVAS *canvas, POS cursor_pos) {
 			case 1:
 				pos = tmp->data.line.anchors;
 				break;
-			case 3:
-				pos = tmp->data.image.anchors;
-				break;
+// 			case 2: - texts can't be targeted -> unless they are buttons
+// 				pos = tmp->data.text.anchor;
+// 				break;
+// 			case 3: - images can't be targeted -> unless they are buttons
+// 				pos = tmp->data.image.anchors;
+// 				break;
 			case 4:
 				pos = tmp->data.contact.main_body.anchors;
+				break;
+			case 5:
+				pos = tmp->data.i_button.hitbox;
+				break;
+			case 6:
+				//pos = *tmp->scrollable;
 				break;
 			}
 

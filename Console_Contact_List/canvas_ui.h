@@ -52,8 +52,9 @@ typedef struct {
 	IMAGE image;
 	ALLEGRO_BITMAP *hover;
 	ALLEGRO_BITMAP *click;
+	ANCHORS hitbox;
 
-//  pointer to calling funcion
+	void(*f)();
 }I_BUTTON;
 
 typedef struct {
@@ -61,7 +62,7 @@ typedef struct {
 	RECTANGLE margin;
 	RECTANGLE background;
 
-//  pointer to calling function
+	void(*f)();
 }T_BUTTON;
 
 typedef union {

@@ -11,8 +11,8 @@ RECTANGLE create_rectangle(ANCHORS anchors, ALLEGRO_COLOR color);
 TEXT create_text(ALLEGRO_FONT *font, POS anchor, ALLEGRO_COLOR color, int flags, char *text);
 IMAGE create_image(ALLEGRO_BITMAP *image, ANCHORS anchors, int flags);
 CONTACT create_contact(RECTANGLE main_body, RECTANGLE color_body, TEXT name_text, TEXT number_text, int count);
-I_BUTTON create_i_button(IMAGE, ALLEGRO_BITMAP*, ALLEGRO_BITMAP*);
-T_BUTTON create_t_button(TEXT, RECTANGLE, RECTANGLE);
+I_BUTTON create_i_button(IMAGE, ALLEGRO_BITMAP*, ALLEGRO_BITMAP*, ANCHORS, void(*));
+T_BUTTON create_t_button(TEXT, RECTANGLE, RECTANGLE, void(*));
 
 DATA create_r_data(RECTANGLE rectangle);
 DATA create_l_data(LINE line);
@@ -64,13 +64,14 @@ CANVAS_ELEMENT* e_init_ibutton(
 	char*, char*, char*,
 	ANCHORS,
 	int,
-	INTERACTABLE,
+	INTERACTABLE, ANCHORS, void(),
 	ANCHORS*);
 
 CANVAS_ELEMENT* e_init_tbutton(
 	char*, int, char*, ALLEGRO_COLOR,
 	ANCHORS, ALLEGRO_COLOR,
 	ANCHORS, ALLEGRO_COLOR,
+	INTERACTABLE, void(),
 	ANCHORS*);
 
 POS recalculate_anchors(POS, POS, int);

@@ -42,8 +42,8 @@ CONTACT create_contact(RECTANGLE main_body, RECTANGLE color_body, TEXT name_text
 	return (CONTACT) { .main_body = main_body, .min_body = color_body, .name_text = name_text, .number_text = number_text, .count = count };
 }
 
-I_BUTTON create_i_button(IMAGE image, ALLEGRO_BITMAP *hover, ALLEGRO_BITMAP *click) {
-	return (I_BUTTON) { .image = image, .hover = hover, .click = click };
+I_BUTTON create_i_button(IMAGE image, ALLEGRO_BITMAP *hover, ALLEGRO_BITMAP *click, ANCHORS hitbox, void (*f)()) {
+	return (I_BUTTON) { .image = image, .hover = hover, .click = click, .hitbox = hitbox, .f = f };
 }
 
 T_BUTTON create_t_button(TEXT text, RECTANGLE margin, RECTANGLE background) {
@@ -218,18 +218,20 @@ CANVAS_ELEMENT* e_init_ibutton(
 	char *normal, char *hover, char *click,
 	ANCHORS pos_size,
 	int flags,
-	INTERACTABLE interactable,
-	ANCHORS *scroll) 
+	INTERACTABLE interactable, ANCHORS hitbox, void(*f)(),
+	ANCHORS *scroll)
 {
 	CANVAS_ELEMENT *element = create_canvas_element(
 		create_ib_data(
 			create_i_button(
 				create_image(
-					normal,
+					al_load_bitmap(normal),
 					pos_size,
 					flags),
-				hover,
-				click)),
+				al_load_bitmap(hover),
+				al_load_bitmap(click),
+				hitbox,
+				f)),
 		create_interactable(1, 1),
 		scroll,
 		5);
@@ -241,7 +243,8 @@ CANVAS_ELEMENT* e_init_tbutton(
 	char *font, int font_size, char *text, ALLEGRO_COLOR text_color,
 	ANCHORS margin, ALLEGRO_COLOR margin_color,
 	ANCHORS body, ALLEGRO_COLOR body_color,
-	ANCHORS *scroll) 
+	INTERACTABLE interactable, void(*f)(),
+	ANCHORS *scroll)
 {
 	CANVAS_ELEMENT *element = create_canvas_element(
 		create_tb_data(
@@ -258,7 +261,7 @@ CANVAS_ELEMENT* e_init_tbutton(
 				create_rectangle(
 					body,
 					body_color))),
-		create_interactable(1, 1),
+		interactable,
 		scroll,
 		6);
 

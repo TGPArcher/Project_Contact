@@ -23,6 +23,9 @@ void draw_element(CANVAS_ELEMENT *element) {
 		case 4:
 			draw_contact(element->data.contact);
 			break;
+		case 5:
+			draw_ibutton(element->data.i_button);
+			break;
 	}
 }
 

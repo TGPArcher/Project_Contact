@@ -161,6 +161,7 @@
     <ClCompile Include="c_init_elements.c" />
     <ClCompile Include="c_manipulation.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="mouse_functions.c" />
     <ClCompile Include="node_creation.c" />
     <ClCompile Include="node_manipulation.c" />
     <ClCompile Include="node_visualisation.c" />
