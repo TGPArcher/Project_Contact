@@ -50,6 +50,10 @@ T_BUTTON create_t_button(TEXT text, RECTANGLE margin, RECTANGLE background) {
 	return (T_BUTTON) { .text = text, .margin = margin, .background = background };
 }
 
+INPUT_FIELD create_i_field(TEXT text, LINE support_line, ANCHORS hitbox) {
+	return (INPUT_FIELD) { .text = text, .support_line = support_line, .hitbox = hitbox };
+}
+
 DATA create_r_data(RECTANGLE rectangle) {
 	return (DATA) { .rectangle = rectangle };
 }
@@ -76,6 +80,10 @@ DATA create_ib_data(I_BUTTON button) {
 
 DATA create_tb_data(T_BUTTON button) {
 	return (DATA) { .t_button = button };
+}
+
+DATA create_ifield_data(INPUT_FIELD input) {
+	return (DATA) { .input_field = input };
 }
 
 CANVAS_ELEMENT* create_canvas_element(DATA data, INTERACTABLE interactable, ANCHORS *scroll, int type) {
@@ -264,6 +272,31 @@ CANVAS_ELEMENT* e_init_tbutton(
 		interactable,
 		scroll,
 		6);
+
+	return element;
+}
+
+CANVAS_ELEMENT* e_init_ifield(
+	char *text, char *font, int font_size, ALLEGRO_COLOR text_color,
+	ANCHORS hitbox, ANCHORS line_pos, ALLEGRO_COLOR line_color, int line_size)
+{
+	CANVAS_ELEMENT *element = create_canvas_element(
+		create_ifield_data(
+			create_i_field(
+				create_text(
+					al_load_ttf_font(font, font_size, 0),
+					create_pos(line_pos.upper.x, line_pos.upper.y - font_size * 1.5),
+					text_color,
+					0,
+					text),
+				create_line(
+					line_pos,
+					line_color,
+					line_size),
+				hitbox)),
+		create_interactable(1, 0),
+		NULL,
+		7);
 
 	return element;
 }

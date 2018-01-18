@@ -50,3 +50,10 @@ void draw_contact(CONTACT contact) {
 void draw_ibutton(I_BUTTON i_button) {
 	draw_image(i_button.image);
 }
+
+//draw text button
+
+void draw_ifield(INPUT_FIELD input_field) {
+	draw_text(input_field.text);
+	draw_line(input_field.support_line);
+}

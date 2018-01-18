@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include <stdio.h>
 #include "allegro5\allegro.h"
 #include "allegro5\allegro_image.h"
@@ -6,11 +5,6 @@
 #include "allegro5\allegro_ttf.h"
 #include "allegro5\allegro_primitives.h"
 #include "canvas_ui.h"
-
-typedef struct {
-	int x;
-	int y;
-}pos;
 
 void initializations();
 void create_display(int, int, int, char*);
@@ -42,6 +36,9 @@ void initializations() {
 
 	if (!al_install_mouse())
 		fprintf(stderr, "could not install mouse\n");
+	
+	if (!al_install_keyboard())
+		fprintf(stderr, "could not install keyboard\n");
 }
 
 void create_display(int w, int h, int flag, char *title) {

@@ -1,18 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <allegro5/allegro.h>
 #include "c_manipulation.h"
 #include "c_init_elements.h"
+#include "c_events.h"
 
 extern void draw_canvas(CANVAS*);
-
-void m_routine(ALLEGRO_EVENT_QUEUE*, CANVAS*);
-void on_click(ALLEGRO_EVENT, CANVAS*);
-void on_hover(ALLEGRO_EVENT, CANVAS*);
-void on_scroll(ALLEGRO_EVENT, CANVAS*);
-
-ALLEGRO_COLOR get_element_color(CANVAS_ELEMENT*);
-void hover_effect(CANVAS_ELEMENT*, ALLEGRO_COLOR);
 
 void m_events_init(CANVAS *canvas) {
 	ALLEGRO_EVENT_QUEUE *event_queue = NULL;
@@ -40,7 +32,7 @@ void m_routine(ALLEGRO_EVENT_QUEUE *event_queue, CANVAS *canvas) {
 		else if (ev.type == ALLEGRO_EVENT_MOUSE_AXES) {
 			if (ev.mouse.dx || ev.mouse.dy)
 				on_hover(ev, canvas);
-			else if (ev.mouse.dz)
+			if (ev.mouse.dz)
 				on_scroll(ev, canvas);
 		}
 	}
@@ -74,26 +66,6 @@ void on_hover(ALLEGRO_EVENT ev, CANVAS *canvas) {
 
 		draw_canvas(canvas);
 	}
-}
-
-void on_scroll(ALLEGRO_EVENT ev, CANVAS *canvas) {
-	CANVAS_ELEMENT *tmp = NULL;
-
-	for (int i = 0; i < canvas->nr_of_layers; i++) {
-		tmp = canvas->layers[i].elements;
-
-		while (tmp) {
-			if (tmp->scrollable) {
-				if ((ev.mouse.x >= tmp->scrollable->upper.x && ev.mouse.x <= tmp->scrollable->lower.x) &&
-					(ev.mouse.y >= tmp->scrollable->upper.y && ev.mouse.y <= tmp->scrollable->lower.y))
-					translate_element(tmp, ev.mouse.dz);
-			}
-
-			tmp = tmp->next;
-		}
-	}
-
-	draw_canvas(canvas);
 }
 
 ALLEGRO_COLOR get_element_color(CANVAS_ELEMENT *element) {
@@ -146,4 +118,24 @@ void hover_effect(CANVAS_ELEMENT *element, ALLEGRO_COLOR color) {
 				element->data.i_button.hover = tmp_bitmap;
 				break;
 		}
+}
+
+void on_scroll(ALLEGRO_EVENT ev, CANVAS *canvas) {
+	CANVAS_ELEMENT *tmp = NULL;
+
+	for (int i = 0; i < canvas->nr_of_layers; i++) {
+		tmp = canvas->layers[i].elements;
+
+		while (tmp) {
+			if (tmp->scrollable) {
+				if ((ev.mouse.x >= tmp->scrollable->upper.x && ev.mouse.x <= tmp->scrollable->lower.x) &&
+					(ev.mouse.y >= tmp->scrollable->upper.y && ev.mouse.y <= tmp->scrollable->lower.y))
+					translate_element(tmp, ev.mouse.dz);
+			}
+
+			tmp = tmp->next;
+		}
+	}
+
+	draw_canvas(canvas);
 }

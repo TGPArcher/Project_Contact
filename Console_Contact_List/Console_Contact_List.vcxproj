@@ -160,6 +160,7 @@
     <ClCompile Include="c_events.c" />
     <ClCompile Include="c_init_elements.c" />
     <ClCompile Include="c_manipulation.c" />
+    <ClCompile Include="c_pages.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="mouse_functions.c" />
     <ClCompile Include="node_creation.c" />
@@ -172,8 +173,10 @@
   <ItemGroup>
     <ClInclude Include="canvas_ui.h" />
     <ClInclude Include="c_draw_elements.h" />
+    <ClInclude Include="c_events.h" />
     <ClInclude Include="c_init_elements.h" />
     <ClInclude Include="c_manipulation.h" />
+    <ClInclude Include="c_pages.h" />
     <ClInclude Include="list.h" />
   </ItemGroup>
   <ItemGroup>

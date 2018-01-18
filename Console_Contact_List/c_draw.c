@@ -26,6 +26,9 @@ void draw_element(CANVAS_ELEMENT *element) {
 		case 5:
 			draw_ibutton(element->data.i_button);
 			break;
+		case 7:
+			draw_ifield(element->data.input_field);
+			break;
 	}
 }
 

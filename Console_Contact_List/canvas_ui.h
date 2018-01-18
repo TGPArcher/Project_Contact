@@ -65,6 +65,12 @@ typedef struct {
 	void(*f)();
 }T_BUTTON;
 
+typedef struct {
+	TEXT text;
+	LINE support_line;
+	ANCHORS hitbox;
+}INPUT_FIELD;
+
 typedef union {
 	RECTANGLE rectangle;
 	LINE line;
@@ -73,6 +79,7 @@ typedef union {
 	CONTACT contact;
 	I_BUTTON i_button;
 	T_BUTTON t_button;
+	INPUT_FIELD input_field;
 }DATA;
 
 typedef struct {
