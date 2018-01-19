@@ -78,6 +78,6 @@ CANVAS_ELEMENT* e_init_tbutton(
 
 CANVAS_ELEMENT* e_init_ifield(
 	char*, char*, int, ALLEGRO_COLOR,
-	ANCHORS, ANCHORS, ALLEGRO_COLOR, int);
+	ANCHORS, ALLEGRO_COLOR, int);
 
 POS recalculate_anchors(POS, POS, int);

@@ -66,6 +66,7 @@ typedef struct {
 }T_BUTTON;
 
 typedef struct {
+	char input_buffer[21];
 	TEXT text;
 	LINE support_line;
 	ANCHORS hitbox;

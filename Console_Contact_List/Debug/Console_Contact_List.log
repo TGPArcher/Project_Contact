@@ -1,16 +1,8 @@
-﻿  c_init_elements.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(49): warning C4029: declared formal parameter list different from definition
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(171): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(171): warning C4024: 'al_load_ttf_font': different types for formal and actual parameter 3
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(206): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(206): warning C4024: 'al_load_ttf_font': different types for formal and actual parameter 3
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(209): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(209): warning C4024: 'create_text': different types for formal and actual parameter 4
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(212): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(212): warning C4024: 'al_load_ttf_font': different types for formal and actual parameter 3
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(215): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(215): warning C4024: 'create_text': different types for formal and actual parameter 4
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(231): warning C4028: formal parameter 8 different from declaration
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_init_elements.c(256): warning C4028: formal parameter 10 different from declaration
+﻿  c_manipulation.c
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(117): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(122): warning C4029: declared formal parameter list different from definition
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(146): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(148): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\c_manipulation.c(197): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)

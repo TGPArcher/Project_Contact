@@ -1,6 +1,12 @@
 #include "c_pages.h"
 
+extern draw_canvas(CANVAS*);
+
 CANVAS active_page;
+
+void draw_active_canvas() {
+	draw_canvas(&active_page);
+}
 
 void set_add_page() {
 	active_page = add_page();
@@ -39,7 +45,6 @@ CANVAS add_page() {
 	last = last->next;
 
 	last->next = e_init_ifield("Petru", "javatext.ttf", 25, al_map_rgb(0, 0, 0),
-		create_anchors(create_pos(100, 150), create_pos(400, 300)),
 		create_anchors(create_pos(100, 300), create_pos(400, 300)),
 		al_map_rgb(50, 50, 50), 1);
 

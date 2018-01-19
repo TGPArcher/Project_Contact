@@ -11,7 +11,7 @@ void m_events_init(CANVAS *canvas) {
 
 	event_queue = al_create_event_queue();
 	if (!event_queue)
-		fprintf(stderr, "could not create event queue");
+		fprintf(stderr, "could not create event queue\n");
 
 	al_register_event_source(event_queue, al_get_mouse_event_source());
 
@@ -41,7 +41,6 @@ void m_routine(ALLEGRO_EVENT_QUEUE *event_queue, CANVAS *canvas) {
 void on_click(ALLEGRO_EVENT ev, CANVAS *canvas) {
 	CANVAS_ELEMENT *test = raycast_canvas(canvas, create_pos(ev.mouse.x, ev.mouse.y));
 
-	
 	select_element(test);
 	draw_canvas(canvas);
 }

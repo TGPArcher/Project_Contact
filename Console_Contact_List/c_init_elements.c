@@ -278,7 +278,7 @@ CANVAS_ELEMENT* e_init_tbutton(
 
 CANVAS_ELEMENT* e_init_ifield(
 	char *text, char *font, int font_size, ALLEGRO_COLOR text_color,
-	ANCHORS hitbox, ANCHORS line_pos, ALLEGRO_COLOR line_color, int line_size)
+	ANCHORS line_pos, ALLEGRO_COLOR line_color, int line_size)
 {
 	CANVAS_ELEMENT *element = create_canvas_element(
 		create_ifield_data(
@@ -293,7 +293,7 @@ CANVAS_ELEMENT* e_init_ifield(
 					line_pos,
 					line_color,
 					line_size),
-				hitbox)),
+				create_anchors(create_pos(line_pos.upper.x, line_pos.lower.y - font_size * 1.5), line_pos.lower))),
 		create_interactable(1, 0),
 		NULL,
 		7);
