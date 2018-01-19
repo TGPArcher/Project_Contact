@@ -180,7 +180,7 @@ CANVAS_ELEMENT* raycast_canvas(CANVAS *canvas, POS cursor_pos) {
 				pos = tmp->data.i_button.hitbox;
 				break;
 			case 6:
-				//pos = *tmp->scrollable;
+				pos = tmp->data.t_button.margin.anchors;
 				break;
 			case 7:
 				pos = tmp->data.input_field.hitbox;

@@ -1,6 +1,7 @@
 #include "c_pages.h"
 
 extern draw_canvas(CANVAS*);
+extern void hit();
 
 CANVAS active_page;
 
@@ -44,9 +45,26 @@ CANVAS add_page() {
 		create_interactable(0, 0), NULL);
 	last = last->next;
 
-	last->next = e_init_ifield("Petru", "javatext.ttf", 25, al_map_rgb(0, 0, 0),
+	last->next = e_init_ifield("Name", "javatext.ttf", 25, al_map_rgb(0, 0, 0),
+		create_anchors(create_pos(100, 200), create_pos(400, 200)),
+		al_map_rgb(50, 50, 50), 1);
+	last = last->next;
+
+	last->next = e_init_ifield("Number", "javatext.ttf", 25, al_map_rgb(0, 0, 0),
 		create_anchors(create_pos(100, 300), create_pos(400, 300)),
 		al_map_rgb(50, 50, 50), 1);
+	last = last->next;
+
+	last->next = e_init_tbutton("javatext.ttf", 25, "Cancel", al_map_rgb(25, 25, 25),
+		5, al_map_rgb(150, 150, 150),
+		create_anchors(create_pos(100, 400), create_pos(240, 500)), al_map_rgb(200, 200, 200),
+		create_interactable(1, 1), &hit, NULL);
+	last = last->next;
+
+	last->next = e_init_tbutton("javatext.ttf", 25, "Apply", al_map_rgb(25, 25, 25),
+		5, al_map_rgb(150, 150, 150),
+		create_anchors(create_pos(260, 400), create_pos(400, 500)), al_map_rgb(200, 200, 200),
+		create_interactable(1, 1), &hit, NULL);
 
 	return canvas;
 }

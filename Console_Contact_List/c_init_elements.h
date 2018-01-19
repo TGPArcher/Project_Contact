@@ -71,7 +71,7 @@ CANVAS_ELEMENT* e_init_ibutton(
 
 CANVAS_ELEMENT* e_init_tbutton(
 	char*, int, char*, ALLEGRO_COLOR,
-	ANCHORS, ALLEGRO_COLOR,
+	int, ALLEGRO_COLOR,
 	ANCHORS, ALLEGRO_COLOR,
 	INTERACTABLE, void(),
 	ANCHORS*);

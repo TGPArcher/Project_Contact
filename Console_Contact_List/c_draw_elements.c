@@ -51,7 +51,11 @@ void draw_ibutton(I_BUTTON i_button) {
 	draw_image(i_button.image);
 }
 
-//draw text button
+void draw_tbutton(T_BUTTON t_button) {
+	draw_rectangle(t_button.margin);
+	draw_rectangle(t_button.background);
+	draw_text(t_button.text);
+}
 
 void draw_ifield(INPUT_FIELD input_field) {
 	draw_text(input_field.text);

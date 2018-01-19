@@ -88,6 +88,12 @@ ALLEGRO_COLOR get_element_color(CANVAS_ELEMENT *element) {
 // 		case 5: -buttons with images have no color
 // 			return ?
 // 			break;
+		case 6:
+			return element->data.t_button.background.color;
+			break;
+// 		case 7: - thinking about it
+// 			return
+// 			break;
 		}
 	else
 		return (ALLEGRO_COLOR) { .r = 0, .g = 0, .b = 0 };
@@ -116,6 +122,11 @@ void hover_effect(CANVAS_ELEMENT *element, ALLEGRO_COLOR color) {
 				element->data.i_button.image.image = element->data.i_button.hover;
 				element->data.i_button.hover = tmp_bitmap;
 				break;
+			case 6:
+				element->data.t_button.background.color = color;
+				break;
+// 			case 7: - thinking about it
+// 				break;
 		}
 }
 

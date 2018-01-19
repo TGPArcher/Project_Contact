@@ -46,8 +46,8 @@ I_BUTTON create_i_button(IMAGE image, ALLEGRO_BITMAP *hover, ALLEGRO_BITMAP *cli
 	return (I_BUTTON) { .image = image, .hover = hover, .click = click, .hitbox = hitbox, .f = f };
 }
 
-T_BUTTON create_t_button(TEXT text, RECTANGLE margin, RECTANGLE background) {
-	return (T_BUTTON) { .text = text, .margin = margin, .background = background };
+T_BUTTON create_t_button(TEXT text, RECTANGLE margin, RECTANGLE background, void(*f)()) {
+	return (T_BUTTON) { .text = text, .margin = margin, .background = background, .f = f };
 }
 
 INPUT_FIELD create_i_field(TEXT text, LINE support_line, ANCHORS hitbox) {
@@ -249,7 +249,7 @@ CANVAS_ELEMENT* e_init_ibutton(
 
 CANVAS_ELEMENT* e_init_tbutton(
 	char *font, int font_size, char *text, ALLEGRO_COLOR text_color,
-	ANCHORS margin, ALLEGRO_COLOR margin_color,
+	int margin, ALLEGRO_COLOR margin_color,
 	ANCHORS body, ALLEGRO_COLOR body_color,
 	INTERACTABLE interactable, void(*f)(),
 	ANCHORS *scroll)
@@ -259,16 +259,17 @@ CANVAS_ELEMENT* e_init_tbutton(
 			create_t_button(
 				create_text(
 					al_load_ttf_font(font, font_size, 0),
-					create_pos(0, 0),
+					create_pos((body.upper.x + body.lower.x)/2, (body.upper.y + body.lower.y) / 2 - font_size),
 					text_color,
-					0,
+					ALLEGRO_ALIGN_CENTRE,
 					text),
 				create_rectangle(
-					margin,
+					body,
 					margin_color),
 				create_rectangle(
-					body,
-					body_color))),
+					create_anchors(create_pos(body.upper.x + margin, body.upper.y + margin), create_pos(body.lower.x - margin, body.lower.y - margin)),
+					body_color),
+				f)),
 		interactable,
 		scroll,
 		6);
