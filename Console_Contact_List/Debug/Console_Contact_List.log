@@ -1,25 +1,4 @@
-﻿  c_pages.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(37): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(38): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(41): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(42): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(45): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(46): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(50): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(51): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(55): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(56): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(61): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(62): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(67): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(89): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(90): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(93): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(94): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(103): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(104): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(107): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(108): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
-c:\users\tgp\documents\github\project_contact\console_contact_list\c_pages.c(111): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+﻿  SL.c
+c:\users\tgp\documents\github\project_contact\console_contact_list\sl.c(48): warning C4047: 'initializing': 'Node *' differs in levels of indirection from 'int'
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)

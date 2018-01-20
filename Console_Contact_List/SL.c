@@ -4,6 +4,7 @@
 #include "list.h"
 
 extern new_node_d(char*, char*);
+extern void delete_node(list*, int);
 
 struct data {
 	char name[21];
@@ -56,6 +57,8 @@ void load_contacts(list *l) {
 			l->last = tmp;
 		}
 	}
+
+	delete_node(l, l->last->id);
 
 	fclose(f);
 	printf("Loaded succesfuly!\n");

@@ -3,8 +3,11 @@
 #include "c_manipulation.h"
 #include "c_init_elements.h"
 #include "c_events.h"
+#include "list.h"
 
 extern void draw_canvas(CANVAS*);
+extern void save_contacts(list*);
+extern list contacts;
 
 void m_events_init(CANVAS *canvas) {
 	ALLEGRO_EVENT_QUEUE *event_queue = NULL;
@@ -26,8 +29,10 @@ void m_routine(ALLEGRO_EVENT_QUEUE *event_queue, CANVAS *canvas) {
 		if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
 			if (ev.mouse.button == 1)
 				on_click(ev, canvas);
-			else if (ev.mouse.button == 2)
+			else if (ev.mouse.button == 2) {
+				save_contacts(&contacts);
 				break;
+			}
 		}
 		else if (ev.type == ALLEGRO_EVENT_MOUSE_AXES) {
 			if (ev.mouse.dx || ev.mouse.dy)

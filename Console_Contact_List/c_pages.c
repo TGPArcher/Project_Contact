@@ -1,9 +1,14 @@
 #include "c_pages.h"
+#include "list.h"
 
 extern draw_canvas(CANVAS*);
 extern void hit();
+extern struct Node* new_node_d(char *_name, char *_phone);
+struct Node* add_node_to_end(list *c, struct Node* n_node);
+extern void print_list_to_canvas(CANVAS *canvas, struct Node *list);
 
 CANVAS active_page;
+extern list contacts;
 
 void draw_active_canvas() {
 	draw_canvas(&active_page);
@@ -15,12 +20,25 @@ void set_add_page() {
 
 void set_display_page() {
 	active_page = display_page();
+	print_list_to_canvas(&active_page, contacts.first);
+}
+
+void add_new_contact() {
+	CANVAS_ELEMENT *tmp1 = active_page.layers[0].elements;
+	CANVAS_ELEMENT *tmp2 = tmp1->next;
+
+	struct Node *new_node = new_node_d(tmp1->data.input_field.text.text, tmp2->data.input_field.text.text);
+
+	contacts.last = add_node_to_end(&contacts, new_node);
+
+	set_display_page();
+	draw_active_canvas();
 }
 
 CANVAS add_page() {
 	CANVAS canvas = {
 		.anchors = create_anchors(create_pos(0, 0), create_pos(500, 750)),
-		.nr_of_layers = 3,
+		.nr_of_layers = 1,
 		.background = al_map_rgb(207, 207, 207) };
 
 	canvas.layers = (LAYER*)malloc(sizeof(LAYER) * canvas.nr_of_layers);
@@ -29,9 +47,19 @@ CANVAS add_page() {
 
 	CANVAS_ELEMENT *last = NULL;
 
-	canvas.layers[0].elements = e_init_rectangle(0, 0, 500, 100, al_map_rgb(145, 56, 60),
-		create_interactable(0, 0), NULL);
+	canvas.layers[0].elements = e_init_ifield("Name", "javatext.ttf", 25, al_map_rgb(0, 0, 0),
+		create_anchors(create_pos(100, 200), create_pos(400, 200)),
+		al_map_rgb(50, 50, 50), 1);
 	last = canvas.layers[0].elements;
+
+	last->next = e_init_ifield("Number", "javatext.ttf", 25, al_map_rgb(0, 0, 0),
+		create_anchors(create_pos(100, 300), create_pos(400, 300)),
+		al_map_rgb(50, 50, 50), 1);
+	last = last->next;
+
+	last->next = e_init_rectangle(0, 0, 500, 100, al_map_rgb(145, 56, 60),
+		create_interactable(0, 0), NULL);
+	last = last->next;
 
 	last->next = e_init_rectangle(0, 705, 500, 750, al_map_rgb(145, 56, 60),
 		create_interactable(0, 0), NULL);
@@ -45,26 +73,16 @@ CANVAS add_page() {
 		create_interactable(0, 0), NULL);
 	last = last->next;
 
-	last->next = e_init_ifield("Name", "javatext.ttf", 25, al_map_rgb(0, 0, 0),
-		create_anchors(create_pos(100, 200), create_pos(400, 200)),
-		al_map_rgb(50, 50, 50), 1);
-	last = last->next;
-
-	last->next = e_init_ifield("Number", "javatext.ttf", 25, al_map_rgb(0, 0, 0),
-		create_anchors(create_pos(100, 300), create_pos(400, 300)),
-		al_map_rgb(50, 50, 50), 1);
-	last = last->next;
-
 	last->next = e_init_tbutton("javatext.ttf", 25, "Cancel", al_map_rgb(25, 25, 25),
 		5, al_map_rgb(150, 150, 150),
 		create_anchors(create_pos(100, 400), create_pos(240, 500)), al_map_rgb(200, 200, 200),
-		create_interactable(1, 1), &hit, NULL);
+		create_interactable(1, 1), &set_display_page, NULL);
 	last = last->next;
 
 	last->next = e_init_tbutton("javatext.ttf", 25, "Apply", al_map_rgb(25, 25, 25),
 		5, al_map_rgb(150, 150, 150),
 		create_anchors(create_pos(260, 400), create_pos(400, 500)), al_map_rgb(200, 200, 200),
-		create_interactable(1, 1), &hit, NULL);
+		create_interactable(1, 1), &add_new_contact, NULL);
 
 	return canvas;
 }

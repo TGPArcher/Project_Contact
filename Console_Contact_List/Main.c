@@ -11,12 +11,12 @@ extern void m_events_init(CANVAS*);
 
 extern CANVAS active_page;
 
+list contacts = { NULL, NULL };
+
 int main() {
 	init_al();
 
-	list contacts = { NULL, NULL };
 	load_contacts(&contacts);
-
 
 	set_display_page();
 	print_list_to_canvas(&active_page, contacts.first);
