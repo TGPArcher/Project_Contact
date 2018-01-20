@@ -2,8 +2,19 @@
 #include <stdio.h>
 #include "list.h"
 
+struct Node* add_node_to_end(list *c, struct Node* n_node) {
+	n_node->prev_node = c->last;
+
+	if (c->last != NULL)
+		c->last->next_node = n_node;
+	else
+		c->first = n_node;
+
+	return n_node;
+}
+
 // add new node to the end of the list
-struct Node* add_node_to_end(list *c) {
+struct Node* add_new_node_to_end(list *c) {
 	struct Node *n_node = new_node_p();
 
 	n_node->prev_node = c->last;

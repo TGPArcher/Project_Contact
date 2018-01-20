@@ -3,8 +3,6 @@
 #include "list.h"
 #include "allegro5\allegro.h"
 
-extern draw_contact(int, int, char*, char*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, ALLEGRO_COLOR*, int);
-
 //
 void print_node(struct Node *n) {
 	if (n != NULL) {
@@ -27,17 +25,4 @@ void print_list(struct Node **n) {
 	}
 	else
 		printf("The contact list is empty!\n");
-}
-
-void contacts_display(struct Node **n) {
-	draw_contact(12, 110, (*n)->name, (*n)->phone_nr, NULL, NULL, NULL, NULL, 0);
-
-	struct Node *tmp = (*n);
-	int count = 0;
-	
-	while (tmp != NULL) {
-		draw_contact(12, 110, tmp->name, tmp->phone_nr, NULL, NULL, NULL, NULL, count);
-		tmp = tmp->next_node;
-		count++;
-	}
 }

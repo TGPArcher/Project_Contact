@@ -22,6 +22,9 @@
     <Filter Include="Header Files\Canvas">
       <UniqueIdentifier>{6b89fa9b-eaad-4858-8ff4-9a2323e6da8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Button functions">
+      <UniqueIdentifier>{0da4ebb0-8a7c-4dcc-be97-e4d81232a5fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="allegro.c">
@@ -57,6 +60,18 @@
     <ClCompile Include="c_draw_elements.c">
       <Filter>Source Files\Canvas</Filter>
     </ClCompile>
+    <ClCompile Include="c_events.c">
+      <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="c_init_elements.c">
+      <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse_functions.c">
+      <Filter>Source Files\Button functions</Filter>
+    </ClCompile>
+    <ClCompile Include="c_pages.c">
+      <Filter>Source Files\Canvas</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h">
@@ -69,6 +84,15 @@
       <Filter>Header Files\Canvas</Filter>
     </ClInclude>
     <ClInclude Include="c_manipulation.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="c_init_elements.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="c_events.h">
+      <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="c_pages.h">
       <Filter>Header Files\Canvas</Filter>
     </ClInclude>
   </ItemGroup>

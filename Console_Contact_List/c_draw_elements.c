@@ -1,6 +1,3 @@
-#include <stdlib.h>
-#include "canvas_ui.h"
-#include "c_manipulation.h"
 #include "c_draw_elements.h"
 
 void draw_rectangle(RECTANGLE rectangle) {
@@ -41,19 +38,6 @@ void draw_image(IMAGE image) {
 }
 
 void draw_contact(CONTACT contact) {
-	contact.main_body.anchors = recalculate_anchors(
-		contact.main_body.anchors,
-		contact.count);
-	contact.min_body.anchors = recalculate_anchors(
-		contact.min_body.anchors,
-		contact.count);
-	contact.name_text.anchor = recalculate_pos(
-		contact.name_text.anchor,
-		contact.main_body.anchors.upper.y);
-	contact.number_text.anchor = recalculate_pos(
-		contact.number_text.anchor,
-		contact.main_body.anchors.upper.y);
-	
 	draw_rectangle(contact.main_body);
 
 	draw_rectangle(contact.min_body);
@@ -61,4 +45,19 @@ void draw_contact(CONTACT contact) {
 	draw_text(contact.name_text);
 
 	draw_text(contact.number_text);
+}
+
+void draw_ibutton(I_BUTTON i_button) {
+	draw_image(i_button.image);
+}
+
+void draw_tbutton(T_BUTTON t_button) {
+	draw_rectangle(t_button.margin);
+	draw_rectangle(t_button.background);
+	draw_text(t_button.text);
+}
+
+void draw_ifield(INPUT_FIELD input_field) {
+	draw_text(input_field.text);
+	draw_line(input_field.support_line);
 }

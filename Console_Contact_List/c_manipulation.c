@@ -1,194 +1,231 @@
-#include <stdlib.h>
-#include "canvas_ui.h"
 #include "c_manipulation.h"
+#include "c_init_elements.h"
+#include "list.h"
+#include "c_pages.h"
+#include <stdio.h>
+#include <string.h>
 
-POS create_pos(int x, int y) {
-	return (POS) { .x = x, .y = y };
+CANVAS_ELEMENT *selected_element = NULL;
+
+void select_element(CANVAS_ELEMENT *element) {
+	select_effect(selected_element, 1);
+
+	selected_element = element;
+	if (selected_element) {
+		select_effect(selected_element, -1);
+
+		if (selected_element->type == 5)
+			selected_element->data.i_button.f();
+		if (selected_element->type == 6)
+			selected_element->data.t_button.f();
+		if (selected_element->type == 7)
+			input_to_field(selected_element);
+	}
+
 }
 
-ANCHORS create_anchors(POS up, POS low) {
-	return (ANCHORS) { .upper = up, .lower = low };
+void select_effect(CANVAS_ELEMENT *element, int operation) {
+	static ALLEGRO_COLOR select_color = { .r = 50,.g = 50,.b = 50,.a = 255 };
+
+	if(element)
+		switch (element->type) {
+			// 	case 0: - rectangles are just for design, cannot be selected	
+			// 		break;
+			// 	case 1: - lines can't be targeted	
+			// 		break;
+			// 	case 2: - texts can't be selected, see T_BUTTONS
+			// 		break;
+			// 	case 3: - images can't be selected, see I_BUTTONS
+			// 		break;
+		case 4:
+			element->data.contact.min_body.color = 
+				blend_colors(element->data.contact.min_body.color, select_color, operation);
+			break;
+// 		case 5: - is troublesome for now
+// 			ALLEGRO_BITMAP *tmp_bitmap = element->data.i_button.image.image;
+// 			element->data.i_button.image.image = element->data.i_button.click;
+// 			element->data.i_button.click = tmp_bitmap;
+// 			break;
+		}
 }
 
-RECTANGLE create_rectangle(ANCHORS anchors, ALLEGRO_COLOR color) {
-	return (RECTANGLE) { .anchors = anchors, .color = color };
+void input_to_field(CANVAS_ELEMENT *input_field) {
+	ALLEGRO_EVENT_QUEUE *event_queue = al_create_event_queue();
+	if (!event_queue)
+		fprintf(stderr, "could not create event\n");
+	al_register_event_source(event_queue, al_get_mouse_event_source());
+	al_register_event_source(event_queue, al_get_keyboard_event_source());
+
+	while (1) {
+		ALLEGRO_EVENT ev;
+		al_wait_for_event(event_queue, &ev);
+
+		if (ev.type == ALLEGRO_EVENT_KEY_CHAR) {
+			if (ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
+				break;
+			if (ev.keyboard.keycode == ALLEGRO_KEY_BACKSPACE)
+				remove_letter(input_field->data.input_field.input_buffer);
+			else
+				add_letter(input_field->data.input_field.input_buffer, ev.keyboard.unichar);
+			
+			input_field->data.input_field.text.text =
+				move_from_field(input_field->data.input_field.input_buffer);
+			
+			draw_active_canvas();
+		}
+		if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP)
+			break;
+	}
 }
 
-LINE create_line(ANCHORS anchors, ALLEGRO_COLOR color, int size) {
-	return (LINE) { .anchors = anchors, .color = color, .size = size };
+char* move_from_field(char field[21]) {
+	int length = strlen(field);
+
+	char *input = (char*)malloc(length + 1);
+	strcpy_s(input, length + 1, field);
+
+	return input;
 }
 
-TEXT create_text(ALLEGRO_FONT *font, POS anchor, ALLEGRO_COLOR color, int flags, char *text) {
-	return (TEXT) { .font = font, .anchor = anchor, .color = color, .flags = flags, .text = text };
+void add_letter(char field[21], char c) {
+	int field_len = strlen(field);
+
+	if (field_len < 20)
+		field[field_len] = c;
 }
 
-IMAGE create_image(ALLEGRO_BITMAP *image, ANCHORS anchors, int flags) {
-	return (IMAGE) { .image = image, .anchors = anchors, .flags = flags };
+void remove_letter(char field[21]) {
+	int field_len = strlen(field);
+
+	if (field_len > 0) {
+		strncpy_s(field, field_len, field, field_len - 1);
+	}
 }
 
-CONTACT create_contact(RECTANGLE main_body, RECTANGLE color_body, TEXT name_text, TEXT number_text, int count) {
-	return (CONTACT) { .main_body = main_body, .min_body = color_body, .name_text = name_text, .number_text = number_text, .count = count };
+ALLEGRO_COLOR blend_colors(ALLEGRO_COLOR color1, ALLEGRO_COLOR color2, int operation) {
+	color1.r += color2.r * operation;
+	color1.g += color2.g * operation;
+	color1.b += color2.b * operation;
+
+	return color1;
 }
 
-DATA create_r_data(RECTANGLE rectangle) {
-	return (DATA) { .rectangle = rectangle };
-}
+CANVAS_ELEMENT* get_canvas_last_element(CANVAS *canvas, int layer) {
+	CANVAS_ELEMENT *tmp = canvas->layers[layer].elements;
 
-DATA create_l_data(LINE line) {
-	return (DATA) { .line = line };
-}
-
-DATA create_t_data(TEXT text) {
-	return (DATA) { .text = text };
-}
-
-DATA create_i_data(IMAGE image) {
-	return (DATA) { .image = image };
-}
-
-DATA create_c_data(CONTACT contact) {
-	return(DATA) { .contact = contact };
-}
-
-CANVAS_ELEMENT* create_canvas_element(DATA data, int type) {
-	CANVAS_ELEMENT *new_element = (CANVAS_ELEMENT*)malloc(sizeof(CANVAS_ELEMENT));
-
-	new_element->type = type;
-	new_element->data = data;
-	new_element->next = NULL;
-
-	return new_element;
-}
-
-CANVAS_ELEMENT* get_canvas_last_element(CANVAS *canvas) {
-	CANVAS_ELEMENT *tmp = canvas->elements;
-
-	while (tmp->next)
+	while (tmp && tmp->next)
 		tmp = tmp->next;
 
 	return tmp;
 }
 
-ANCHORS recalculate_anchors(ANCHORS anchors, int count) {
-	POS size = create_pos(
-		anchors.lower.x - anchors.upper.x,
-		anchors.lower.y - anchors.upper.y);
-
-	return (anchors = create_anchors(
-		create_pos(anchors.upper.x, anchors.upper.y + (size.y + 11) * count),
-		create_pos(anchors.lower.x, anchors.lower.y + (size.y + 11) * count)));
-}
-
-POS recalculate_pos(POS anchors, int y) {
-	return (anchors = create_pos(anchors.x, anchors.y + y + 11));
-}
-
-CANVAS display_page() {
-	CANVAS canvas = { .anchors = create_anchors(create_pos(0, 0), create_pos(500, 750)) };
+void print_list_to_canvas(CANVAS *canvas, struct Node *list) {
 	CANVAS_ELEMENT *last = NULL;
+	struct Node *tmp = list;
+	int count = 0;
 
-	canvas.elements = create_canvas_element(
-		create_r_data(
-			create_rectangle(
-				create_anchors(create_pos(0, 0), create_pos(500, 100)),
-				al_map_rgb(145, 56, 60))),
-		0);
-	last = canvas.elements;
+	canvas->layers[2].elements = e_init_contact(
+		create_pos(12, 110), create_pos(30, 10), create_pos(30, 50),
+		al_map_rgb(174, 174, 174), al_map_rgb(120, 115, 130), al_map_rgb(48, 48, 48), al_map_rgb(88, 88, 88),
+		tmp->name, tmp->phone_nr,
+		count,
+		create_interactable(1, 1),
+		set_scroll_rect(create_pos(0, 100), create_pos(500, 705)));
 
-	last->next = create_canvas_element(
-		create_r_data(
-			create_rectangle(
-				create_anchors(create_pos(0, 705), create_pos(500, 750)),
-				al_map_rgb(145, 56, 60))),
-		0);
-	last = last->next;
+	last = canvas->layers[2].elements;
+	tmp = tmp->next_node;
+	count++;
 
-	last->next = create_canvas_element(
-		create_l_data(
-			create_line(
-				create_anchors(create_pos(20, 69), create_pos(406, 69)),
-				al_map_rgb(0, 0, 0),
-				2)),
-		1);
-	last = last->next;
+	while (tmp) {
+		last->next = e_init_contact(
+			create_pos(12, 110), create_pos(30, 10), create_pos(30, 50),
+			al_map_rgb(174, 174, 174), al_map_rgb(120, 115, 130), al_map_rgb(48, 48, 48), al_map_rgb(88, 88, 88),
+			tmp->name, tmp->phone_nr,
+			count,
+			create_interactable(1, 1),
+			set_scroll_rect(create_pos(0, 100), create_pos(500, 705)));
 
-	last->next = create_canvas_element(
-		create_i_data(
-			create_image(
-				al_load_bitmap("add_button.png"),
-				create_anchors(create_pos(380, 630), create_pos(110, 110)),
-				NULL)),
-		3);
-	last = last->next;
-
-	last->next = create_canvas_element(
-		create_i_data(
-			create_image(
-				al_load_bitmap("search_button.png"),
-				create_anchors(create_pos(406, 0), create_pos(100, 100)),
-				NULL)),
-		3);
-	last = last->next;
-
-	last->next = create_canvas_element(
-		create_t_data(
-			create_text(
-				al_load_ttf_font("javatext.ttf", 50, NULL),
-				create_pos(30, 0),
-				al_map_rgb(0, 0, 0),
-				NULL,
-				"CONTACTS")),
-		2);
-
-	return canvas;
+		last = last->next;
+		tmp = tmp->next_node;
+		count++;
+	}
 }
 
-void print_list_to_canvas(CANVAS *canvas) {
-	get_canvas_last_element(canvas)->next = create_canvas_element(
-		create_c_data(
-			create_contact(
-				create_rectangle(
-					create_anchors(create_pos(12, 110), create_pos(12 + 475, 110 + 100)),
-					al_map_rgb(174, 174, 174)),
-				create_rectangle(
-					create_anchors(create_pos(12, 110), create_pos(12 + 12, 110 + 100)),
-					al_map_rgb(120, 115, 130)),
-				create_text(
-					al_load_ttf_font("javatext.ttf", 25, NULL),
-					create_pos(22, 10),
-					al_map_rgb(48, 48, 48),
-					NULL,
-					"Petru"),
-				create_text(
-					al_load_ttf_font("javatext.ttf", 25, NULL),
-					create_pos(22, 50),
-					al_map_rgb(88, 88, 88),
-					NULL,
-					"068454141"),
-				0)),
-			4);
+CANVAS_ELEMENT* raycast_canvas(CANVAS *canvas, POS cursor_pos) {
+	CANVAS_ELEMENT *tmp = NULL;
 
-	get_canvas_last_element(canvas)->next = create_canvas_element(
-		create_c_data(
-			create_contact(
-				create_rectangle(
-					create_anchors(create_pos(12, 110), create_pos(12 + 475, 110 + 100)),
-					al_map_rgb(174, 174, 174)),
-				create_rectangle(
-					create_anchors(create_pos(12, 110), create_pos(12 + 12, 110 + 100)),
-					al_map_rgb(120, 115, 130)),
-				create_text(
-					al_load_ttf_font("javatext.ttf", 25, NULL),
-					create_pos(22, 10),
-					al_map_rgb(48, 48, 48),
-					NULL,
-					"Petru"),
-				create_text(
-					al_load_ttf_font("javatext.ttf", 25, NULL),
-					create_pos(22, 50),
-					al_map_rgb(88, 88, 88),
-					NULL,
-					"068454141"),
-				1)),
-		4);
+	for (int i = 0; i < canvas->nr_of_layers; i++) {
+		tmp = canvas->layers[i].elements;
+
+		while (tmp) {
+			ANCHORS pos = { -1, -1 };
+
+			switch (tmp->type) {
+			case 0:
+				pos = tmp->data.rectangle.anchors;
+				break;
+			case 1:
+				pos = tmp->data.line.anchors;
+				break;
+// 			case 2: - texts can't be targeted -> unless they are buttons
+// 				pos = tmp->data.text.anchor;
+// 				break;
+// 			case 3: - images can't be targeted -> unless they are buttons
+// 				pos = tmp->data.image.anchors;
+// 				break;
+			case 4:
+				pos = tmp->data.contact.main_body.anchors;
+				break;
+			case 5:
+				pos = tmp->data.i_button.hitbox;
+				break;
+			case 6:
+				pos = tmp->data.t_button.margin.anchors;
+				break;
+			case 7:
+				pos = tmp->data.input_field.hitbox;
+				break;
+			}
+
+			if ((cursor_pos.x >= pos.upper.x && cursor_pos.x <= pos.lower.x) &&
+				(cursor_pos.y >= pos.upper.y && cursor_pos.y <= pos.lower.y))
+				if (tmp->interactable.raycast)
+					return tmp;
+				else
+					return NULL;
+			
+			tmp = tmp->next;
+		}
+	}
+
+	return tmp;
+}
+
+void translate_element(CANVAS_ELEMENT *element, int change) {
+	change *= 10;
+
+	switch (element->type) {
+	case 0:
+		element->data.rectangle.anchors.upper.y += change;
+		element->data.rectangle.anchors.lower.y += change;
+		break;
+	case 1:
+		element->data.rectangle.anchors.upper.y += change;
+		element->data.rectangle.anchors.lower.y += change;
+		break;
+	case 2:
+		element->data.text.anchor.y += change;
+		break;
+	case 3:
+		element->data.image.anchors.upper.y += change;
+		break;
+	case 4:
+		element->data.contact.main_body.anchors.upper.y += change;
+		element->data.contact.main_body.anchors.lower.y += change;
+		element->data.contact.min_body.anchors.upper.y += change;
+		element->data.contact.min_body.anchors.lower.y += change;
+		element->data.contact.name_text.anchor.y += change;
+		element->data.contact.number_text.anchor.y += change;
+		break;
+	}
 }

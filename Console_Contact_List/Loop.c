@@ -19,14 +19,6 @@ extern void print_list(struct Node**);
 
 extern void search_by_name(list*);
 
-void loop() {
-	list contacts = { NULL, NULL };
-
-	while (1) {
-
-	}
-}
-
 /*void l_main() {
 	list contacts = { NULL, NULL };
 
