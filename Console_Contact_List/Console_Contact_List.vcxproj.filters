@@ -22,8 +22,17 @@
     <Filter Include="Header Files\Canvas">
       <UniqueIdentifier>{6b89fa9b-eaad-4858-8ff4-9a2323e6da8c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Button functions">
+    <Filter Include="Source Files\Elements">
+      <UniqueIdentifier>{143960a6-aeed-4a6e-826b-763fb5a7671a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mouse_events">
       <UniqueIdentifier>{0da4ebb0-8a7c-4dcc-be97-e4d81232a5fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mouse_events">
+      <UniqueIdentifier>{d9db099e-0cd6-458b-9805-cb17d20abc9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Elements">
+      <UniqueIdentifier>{66d19646-eec4-4215-806d-ea4f25427873}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,24 +69,30 @@
     <ClCompile Include="c_draw_elements.c">
       <Filter>Source Files\Canvas</Filter>
     </ClCompile>
-    <ClCompile Include="c_events.c">
-      <Filter>Source Files\Canvas</Filter>
-    </ClCompile>
     <ClCompile Include="c_init_elements.c">
       <Filter>Source Files\Canvas</Filter>
-    </ClCompile>
-    <ClCompile Include="mouse_functions.c">
-      <Filter>Source Files\Button functions</Filter>
     </ClCompile>
     <ClCompile Include="c_pages.c">
       <Filter>Source Files\Canvas</Filter>
     </ClCompile>
+    <ClCompile Include="element_input_field.c">
+      <Filter>Source Files\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="on_click.c">
+      <Filter>Source Files\mouse_events</Filter>
+    </ClCompile>
+    <ClCompile Include="on_hover.c">
+      <Filter>Source Files\mouse_events</Filter>
+    </ClCompile>
+    <ClCompile Include="on_scroll.c">
+      <Filter>Source Files\mouse_events</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse_events.c">
+      <Filter>Source Files\mouse_events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="canvas_ui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="c_draw_elements.h">
@@ -89,11 +104,26 @@
     <ClInclude Include="c_init_elements.h">
       <Filter>Header Files\Canvas</Filter>
     </ClInclude>
-    <ClInclude Include="c_events.h">
-      <Filter>Header Files\Canvas</Filter>
+    <ClInclude Include="on_click.h">
+      <Filter>Header Files\mouse_events</Filter>
+    </ClInclude>
+    <ClInclude Include="on_hover.h">
+      <Filter>Header Files\mouse_events</Filter>
+    </ClInclude>
+    <ClInclude Include="on_scroll.h">
+      <Filter>Header Files\mouse_events</Filter>
+    </ClInclude>
+    <ClInclude Include="element_input_field.h">
+      <Filter>Header Files\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse_events.h">
+      <Filter>Header Files\mouse_events</Filter>
     </ClInclude>
     <ClInclude Include="c_pages.h">
       <Filter>Header Files\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="canvas_ui.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

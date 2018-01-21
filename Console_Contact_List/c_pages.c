@@ -1,11 +1,4 @@
 #include "c_pages.h"
-#include "list.h"
-
-extern draw_canvas(CANVAS*);
-extern void hit();
-extern struct Node* new_node_d(char *_name, char *_phone);
-struct Node* add_node_to_end(list *c, struct Node* n_node);
-extern void print_list_to_canvas(CANVAS *canvas, struct Node *list);
 
 CANVAS active_page;
 extern list contacts;

@@ -1,4 +1,5 @@
-﻿  SL.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\sl.c(48): warning C4047: 'initializing': 'Node *' differs in levels of indirection from 'int'
+﻿  Main.c
+c:\users\tgp\documents\github\project_contact\console_contact_list\main.c(8): warning C4030: first formal parameter list longer than the second list
+c:\users\tgp\documents\github\project_contact\console_contact_list\main.c(22): warning C4020: 'print_list_to_canvas': too many actual parameters
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)

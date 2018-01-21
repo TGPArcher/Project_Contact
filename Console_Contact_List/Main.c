@@ -6,7 +6,7 @@
 extern void init_al();
 extern void load_contacts(list*);
 extern void print_list_to_canvas(CANVAS *canvas);
-extern void draw_canvas(CANVAS*);
+extern void draw_active_canvas();
 extern void m_events_init(CANVAS*);
 
 extern CANVAS active_page;
@@ -21,7 +21,7 @@ int main() {
 	set_display_page();
 	print_list_to_canvas(&active_page, contacts.first);
 
-	draw_canvas(&active_page);
+	draw_active_canvas();
 
 	m_events_init(&active_page);
 
