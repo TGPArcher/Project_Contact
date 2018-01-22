@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 
-extern void draw_active_canvas();
+extern void draw_active_page();
 
 void input_to_field(CANVAS_ELEMENT*);
 char* move_from_field(char[21]);

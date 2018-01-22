@@ -20,7 +20,7 @@ void on_hover(ALLEGRO_EVENT ev) {
 		// apply hover effect to new element
 		hover_effect(element, hover_color);
 
-		draw_active_canvas();
+		draw_active_page();
 	}
 }
 

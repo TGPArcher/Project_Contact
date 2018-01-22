@@ -39,11 +39,8 @@ void draw_image(IMAGE image) {
 
 void draw_contact(CONTACT contact) {
 	draw_rectangle(contact.main_body);
-
 	draw_rectangle(contact.min_body);
-
 	draw_text(contact.name_text);
-
 	draw_text(contact.number_text);
 }
 

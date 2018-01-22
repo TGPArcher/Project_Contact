@@ -23,7 +23,7 @@ void input_to_field(CANVAS_ELEMENT *input_field) {
 			input_field->data.input_field.text.text =
 				move_from_field(input_field->data.input_field.input_buffer);
 
-			draw_active_canvas();
+			draw_active_page();
 		}
 		if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP)
 			break;

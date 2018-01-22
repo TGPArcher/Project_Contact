@@ -19,7 +19,7 @@ void on_scroll(ALLEGRO_EVENT ev) {
 		}
 	}
 
-	draw_active_canvas();
+	draw_active_page();
 }
 
 void translate_element(CANVAS_ELEMENT *element, int change) {

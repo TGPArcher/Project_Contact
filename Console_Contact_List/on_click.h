@@ -3,7 +3,7 @@
 #include "canvas_ui.h"
 #include "c_init_elements.h"
 
-extern void draw_active_canvas();
+extern void draw_active_page();
 extern CANVAS_ELEMENT* raycast_canvas(POS);
 extern void input_to_field(CANVAS_ELEMENT*);
 
