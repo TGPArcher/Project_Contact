@@ -137,6 +137,9 @@
     <ClInclude Include="node_creation.h">
       <Filter>Header Files\Node</Filter>
     </ClInclude>
+    <ClInclude Include="node_search.h">
+      <Filter>Header Files\Node</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

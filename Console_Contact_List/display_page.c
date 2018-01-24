@@ -20,9 +20,9 @@ CANVAS display_page() {
 		create_interactable(0, 0), NULL);
 	last = last->next;
 
-	last->next = e_init_line(20, 69, 406, 69, al_map_rgb(0, 0, 0), 2,
-		create_interactable(0, 0), NULL);
-	last = last->next;
+// 	last->next = e_init_line(20, 69, 406, 69, al_map_rgb(0, 0, 0), 2,
+// 		create_interactable(0, 0), NULL);
+// 	last = last->next;
 
 	last->next = e_init_ibutton(
 		"add_button_0.png", "add_button_1.png", "add_button_2.png",
@@ -34,12 +34,16 @@ CANVAS display_page() {
 		NULL);
 	last = last->next;
 
-	last->next = e_init_image("search_button.png", 406, 0, 100, 100, 0,
-		create_interactable(0, 0), NULL);
+	last->next = e_init_ifield(
+		"SEARCH", "javatext.ttf", 30, al_map_rgb(0, 0, 0),
+		create_anchors(create_pos(20, 69), create_pos(406, 69)), al_map_rgb(0, 0, 0), 2,
+		NULL, &search_by_name);
+// 	last->next = e_init_image("search_button.png", 406, 0, 100, 100, 0,
+// 		create_interactable(0, 0), NULL);
 	last = last->next;
 
-	last->next = e_init_text("javatext.ttf", 50, 30, 0, al_map_rgb(0, 0, 0), 0, "CONTACTS",
-		create_interactable(0, 0), NULL);
+// 	last->next = e_init_text("javatext.ttf", 50, 30, 0, al_map_rgb(0, 0, 0), 0, "CONTACTS",
+// 		create_interactable(0, 0), NULL);
 
 	return canvas;
 }

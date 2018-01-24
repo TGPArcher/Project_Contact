@@ -14,12 +14,14 @@ CANVAS add_page() {
 
 	canvas.layers[0].elements = e_init_ifield("Name", "javatext.ttf", 25, al_map_rgb(0, 0, 0),
 		create_anchors(create_pos(100, 200), create_pos(400, 200)),
-		al_map_rgb(50, 50, 50), 1);
+		al_map_rgb(50, 50, 50), 1,
+		NULL, NULL);
 	last = canvas.layers[0].elements;
 
 	last->next = e_init_ifield("Number", "javatext.ttf", 25, al_map_rgb(0, 0, 0),
 		create_anchors(create_pos(100, 300), create_pos(400, 300)),
-		al_map_rgb(50, 50, 50), 1);
+		al_map_rgb(50, 50, 50), 1,
+		NULL, NULL);
 	last = last->next;
 
 	last->next = e_init_rectangle(0, 0, 500, 100, al_map_rgb(145, 56, 60),

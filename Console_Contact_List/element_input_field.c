@@ -1,5 +1,7 @@
 #include "element_input_field.h"
 
+extern list contacts;
+
 void input_to_field(CANVAS_ELEMENT *input_field) {
 	ALLEGRO_EVENT_QUEUE *event_queue = al_create_event_queue();
 	if (!event_queue)
@@ -9,24 +11,36 @@ void input_to_field(CANVAS_ELEMENT *input_field) {
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
 
 	while (1) {
+		int changed = 0;
 		ALLEGRO_EVENT ev;
 		al_wait_for_event(event_queue, &ev);
 
 		if (ev.type == ALLEGRO_EVENT_KEY_CHAR) {
 			if (ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
 				break;
-			if (ev.keyboard.keycode == ALLEGRO_KEY_BACKSPACE)
+			if (ev.keyboard.keycode == ALLEGRO_KEY_BACKSPACE) {
 				remove_letter(input_field->data.input_field.input_buffer);
-			else
-				add_letter(input_field->data.input_field.input_buffer, ev.keyboard.unichar);
+				changed = 1;
+			}
+			else {
+				add_letter(input_field->data.input_field.input_buffer, ev.keyboard.unichar);	
+				changed = 1;
+			}
 
 			input_field->data.input_field.text.text =
 				move_from_field(input_field->data.input_field.input_buffer);
+			
+			if (changed)
+				if (input_field->data.input_field.on_change)
+					input_field->data.input_field.on_change(&contacts, input_field->data.input_field.text.text);
 
 			draw_active_page();
 		}
-		if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP)
+		if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
+			if (input_field->data.input_field.on_exit)
+				input_field->data.input_field.on_exit();
 			break;
+		}
 	}
 }
 

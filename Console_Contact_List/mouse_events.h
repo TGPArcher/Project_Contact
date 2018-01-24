@@ -4,7 +4,6 @@
 #include "canvas_ui.h"
 #include "list.h"
 #include "c_init_elements.h"
-#include "c_manipulation.h"
 
 extern void save_contacts(list*);
 

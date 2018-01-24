@@ -50,8 +50,8 @@ T_BUTTON create_t_button(TEXT text, RECTANGLE margin, RECTANGLE background, void
 	return (T_BUTTON) { .text = text, .margin = margin, .background = background, .f = f };
 }
 
-INPUT_FIELD create_i_field(TEXT text, LINE support_line, ANCHORS hitbox) {
-	return (INPUT_FIELD) { .text = text, .support_line = support_line, .hitbox = hitbox };
+INPUT_FIELD create_i_field(TEXT text, LINE support_line, ANCHORS hitbox, void(*on_exit)(), void(*on_change)()) {
+	return (INPUT_FIELD) { .text = text, .support_line = support_line, .hitbox = hitbox, .on_exit = on_exit, .on_change = on_change };
 }
 
 DATA create_r_data(RECTANGLE rectangle) {
@@ -279,7 +279,8 @@ CANVAS_ELEMENT* e_init_tbutton(
 
 CANVAS_ELEMENT* e_init_ifield(
 	char *text, char *font, int font_size, ALLEGRO_COLOR text_color,
-	ANCHORS line_pos, ALLEGRO_COLOR line_color, int line_size)
+	ANCHORS line_pos, ALLEGRO_COLOR line_color, int line_size,
+	void(*on_exit)(), void(*on_change)())
 {
 	CANVAS_ELEMENT *element = create_canvas_element(
 		create_ifield_data(
@@ -294,7 +295,9 @@ CANVAS_ELEMENT* e_init_ifield(
 					line_pos,
 					line_color,
 					line_size),
-				create_anchors(create_pos(line_pos.upper.x, line_pos.lower.y - font_size * 1.5), line_pos.lower))),
+				create_anchors(create_pos(line_pos.upper.x, line_pos.lower.y - font_size * 1.5), line_pos.lower),
+				on_exit,
+				on_change)),
 		create_interactable(1, 0),
 		NULL,
 		7);
