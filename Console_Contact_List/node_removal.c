@@ -3,19 +3,19 @@
 extern CANVAS active_page;
 extern list contacts;
 
-void delete_from_canvas(int id) {
-	delete_node(&contacts, id);
+void delete_from_canvas(int count) {
+	delete_node(&contacts, count);
 	print_list_to_canvas(&active_page, contacts.first);
 }
 
-// delete by id
-void delete_node(list *l, int id) {
+// delete by pos
+void delete_node(list *l, int count) {
 	int found = 1;
 
 	struct Node *tmp_node = l->first;
 	if (tmp_node)
-		while (tmp_node->id != id) {
-			if (!tmp_node->next_node) {
+		for (int i = 0; i < count; i++) {
+			if (!tmp_node) {
 				printf("Sorry, the id you want to delete does not exist\n");
 				found = 0;
 				break;
