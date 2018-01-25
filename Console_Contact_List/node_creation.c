@@ -34,10 +34,19 @@ void add_new_contact() {
 	CANVAS_ELEMENT *tmp1 = active_page.layers[0].elements;
 	CANVAS_ELEMENT *tmp2 = tmp1->next;
 
-	struct Node *node = new_node(tmp1->data.input_field.text.text, tmp2->data.input_field.text.text);
+	if (tmp1->data.input_field.text.text != "Name" &&
+		tmp2->data.input_field.text.text != "Number") {
+		struct Node *node = new_node(tmp1->data.input_field.text.text, tmp2->data.input_field.text.text);
 
-	contacts.last = add_node_to_end(&contacts, node);
+		contacts.last = add_node_to_end(&contacts, node);
 
-	set_display_page();
-	draw_active_page();
+		set_display_page();
+	}
+	else {
+		if (tmp1->data.input_field.text.text == "Name")
+			tmp1->data.input_field.text.text = "Invalid name";
+		if (tmp2->data.input_field.text.text == "Number")
+			tmp2->data.input_field.text.text = "Invalid number";
+	}
+		draw_active_page();
 }
