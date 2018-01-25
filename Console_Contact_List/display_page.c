@@ -35,12 +35,12 @@ CANVAS display_page() {
 
 	last->next = e_init_ifield(
 		"SEARCH", "javatext.ttf", 30, al_map_rgb(0, 0, 0),
-		create_anchors(create_pos(120, 69), create_pos(506, 69)), al_map_rgb(0, 0, 0), 2,
+		create_anchors(create_pos(120, 69), create_pos(488, 69)), al_map_rgb(0, 0, 0), 2,
 		NULL, &search_by_name);
 	last = last->next;
 
 	last->next = e_init_ibutton(
-		"search_button_0.png", "search_button_1.png", "search_button_1.png",
+		"search_button_0.png", "search_button_2.png", "search_button_2.png",
 		create_anchors(create_pos(20, 0), create_pos(100, 100)),
 		0,
 		create_interactable(1, 1),

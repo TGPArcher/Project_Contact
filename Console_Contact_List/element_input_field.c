@@ -3,6 +3,9 @@
 extern list contacts;
 
 void input_to_field(CANVAS_ELEMENT *input_field) {
+	input_field->data.input_field.support_line.color = al_map_rgb(229, 66, 48);
+	draw_active_page();
+
 	ALLEGRO_EVENT_QUEUE *event_queue = al_create_event_queue();
 	if (!event_queue)
 		fprintf(stderr, "could not create event\n");
@@ -43,6 +46,9 @@ void input_to_field(CANVAS_ELEMENT *input_field) {
 
 	if (input_field->data.input_field.on_exit)
 		input_field->data.input_field.on_exit();
+
+	input_field->data.input_field.support_line.color = al_map_rgb(0,0,0);
+	draw_active_page();
 }
 
 char* move_from_field(char field[21]) {
