@@ -15,11 +15,10 @@ void select_element(CANVAS_ELEMENT *element) {
 		select_effect(element, -1);
 
 		if (element->type == 5)
-			if (element->data.i_button.f == &set_add_page)
-				element->data.i_button.f();
-			else
+			if (selected_element)
 				element->data.i_button.f(selected_element->data.contact.count);
-		
+			else
+				element->data.i_button.f();
 		if (element->type == 6)
 			element->data.t_button.f();
 		

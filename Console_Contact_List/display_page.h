@@ -4,6 +4,7 @@
 #include "c_init_elements.h"
 
 //extern
+void activate_search_bar();
 void delete_from_canvas(int);
 void search_by_name(list *c, char *search);
 void set_add_page();

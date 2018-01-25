@@ -1,4 +1,5 @@
 #include "display_page.h"
+#include <stdio.h>
 
 extern CANVAS active_page;
 
@@ -34,11 +35,18 @@ CANVAS display_page() {
 
 	last->next = e_init_ifield(
 		"SEARCH", "javatext.ttf", 30, al_map_rgb(0, 0, 0),
-		create_anchors(create_pos(20, 69), create_pos(406, 69)), al_map_rgb(0, 0, 0), 2,
+		create_anchors(create_pos(120, 69), create_pos(506, 69)), al_map_rgb(0, 0, 0), 2,
 		NULL, &search_by_name);
-// 	last->next = e_init_image("search_button.png", 406, 0, 100, 100, 0,
-// 		create_interactable(0, 0), NULL);
 	last = last->next;
+
+	last->next = e_init_ibutton(
+		"search_button_0.png", "search_button_1.png", "search_button_1.png",
+		create_anchors(create_pos(20, 0), create_pos(100, 100)),
+		0,
+		create_interactable(1, 1),
+		create_anchors(create_pos(20, 0), create_pos(120, 100)),
+		&activate_search_bar,
+		NULL);
 
 	return canvas;
 }

@@ -170,6 +170,7 @@
     <ClCompile Include="node_search.c" />
     <ClCompile Include="on_hover.c" />
     <ClCompile Include="on_scroll.c" />
+    <ClCompile Include="search_button.c" />
     <ClCompile Include="SL.c" />
   </ItemGroup>
   <ItemGroup>

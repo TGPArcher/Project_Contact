@@ -1,4 +1,12 @@
-﻿  node_creation.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\node_creation.c(35): warning C4133: 'initializing': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+﻿  display_page.c
+c:\users\tgp\documents\github\project_contact\console_contact_list\display_page.c(23): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\display_page.c(24): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\display_page.c(33): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\display_page.c(34): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\display_page.c(39): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\display_page.c(40): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\display_page.c(49): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\display_page.c(78): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+c:\users\tgp\documents\github\project_contact\console_contact_list\display_page.c(80): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)
