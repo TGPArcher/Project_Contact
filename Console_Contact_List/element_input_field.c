@@ -37,11 +37,12 @@ void input_to_field(CANVAS_ELEMENT *input_field) {
 			draw_active_page();
 		}
 		if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
-			if (input_field->data.input_field.on_exit)
-				input_field->data.input_field.on_exit();
 			break;
 		}
 	}
+
+	if (input_field->data.input_field.on_exit)
+		input_field->data.input_field.on_exit();
 }
 
 char* move_from_field(char field[21]) {

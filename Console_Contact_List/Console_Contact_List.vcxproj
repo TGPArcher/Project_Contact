@@ -183,6 +183,7 @@
     <ClInclude Include="c_pages.h" />
     <ClInclude Include="list.h" />
     <ClInclude Include="node_creation.h" />
+    <ClInclude Include="node_removal.h" />
     <ClInclude Include="node_search.h" />
     <ClInclude Include="on_click.h" />
     <ClInclude Include="on_hover.h" />

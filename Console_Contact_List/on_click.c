@@ -10,19 +10,30 @@ void on_click(ALLEGRO_EVENT ev, CANVAS *canvas) {
 }
 
 void select_element(CANVAS_ELEMENT *element) {
-	select_effect(selected_element, 1);
+	//work more here
+	if (selected_element)
+		if (selected_element->type == 4)
+			remove_delete_button();
+	
+	if (element) {
+		select_effect(element, -1);
 
-	selected_element = element;
-	if (selected_element) {
-		select_effect(selected_element, -1);
-
-		if (selected_element->type == 5)
-			selected_element->data.i_button.f();
-		if (selected_element->type == 6)
-			selected_element->data.t_button.f();
-		if (selected_element->type == 7)
-			input_to_field(selected_element);
+		if (element->type == 4)
+			add_delete_button(element->data.contact.main_body.anchors);
+		if (element->type == 5) {
+			if (element->data.i_button.f != &set_add_page)
+				element->data.i_button.f(selected_element->data.contact.count);
+			else
+				element->data.i_button.f();
+		}
+		if (element->type == 6)
+			element->data.t_button.f();
+		if (element->type == 7)
+			input_to_field(element);
 	}
+
+	select_effect(selected_element, 1);
+	selected_element = element;
 }
 
 void select_effect(CANVAS_ELEMENT *element, int operation) {

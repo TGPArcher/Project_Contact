@@ -1,5 +1,7 @@
 #include "display_page.h"
 
+extern CANVAS active_page;
+
 CANVAS display_page() {
 	CANVAS canvas = {
 		.anchors = create_anchors(create_pos(0, 0), create_pos(500, 750)),
@@ -20,10 +22,6 @@ CANVAS display_page() {
 		create_interactable(0, 0), NULL);
 	last = last->next;
 
-// 	last->next = e_init_line(20, 69, 406, 69, al_map_rgb(0, 0, 0), 2,
-// 		create_interactable(0, 0), NULL);
-// 	last = last->next;
-
 	last->next = e_init_ibutton(
 		"add_button_0.png", "add_button_1.png", "add_button_2.png",
 		create_anchors(create_pos(380, 630), create_pos(110, 110)),
@@ -41,9 +39,6 @@ CANVAS display_page() {
 // 	last->next = e_init_image("search_button.png", 406, 0, 100, 100, 0,
 // 		create_interactable(0, 0), NULL);
 	last = last->next;
-
-// 	last->next = e_init_text("javatext.ttf", 50, 30, 0, al_map_rgb(0, 0, 0), 0, "CONTACTS",
-// 		create_interactable(0, 0), NULL);
 
 	return canvas;
 }
@@ -79,3 +74,24 @@ void print_list_to_canvas(CANVAS *canvas, struct Node *list) {
 		count++;
 	}
 }
+
+void remove_delete_button() {
+	if(active_page.nr_of_layers == 3)
+		if (active_page.layers[1].elements) {
+			free(active_page.layers[1].elements);
+			active_page.layers[1].elements = NULL;
+		}
+}
+
+void add_delete_button(ANCHORS anchors) {
+	active_page.layers[1].elements = e_init_ibutton(
+		"delete_icon_0.png", "delete_icon_1.png", "delete_icon_1.png",
+		create_anchors(create_pos(440, anchors.upper.y + 25), create_pos(40, 50)),
+		0,
+		create_interactable(1, 1),
+		create_anchors(create_pos(440, anchors.upper.y + 25), create_pos(480, anchors.upper.y + 25 + 50)),
+		&delete_from_canvas,
+		set_scroll_rect(create_pos(0, 100), create_pos(500, 705)));
+}
+
+

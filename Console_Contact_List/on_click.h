@@ -3,9 +3,13 @@
 #include "canvas_ui.h"
 #include "c_init_elements.h"
 
-extern void draw_active_page();
-extern CANVAS_ELEMENT* raycast_canvas(POS);
-extern void input_to_field(CANVAS_ELEMENT*);
+//extern
+void set_add_page();
+void add_delete_button(ANCHORS);
+void remove_delete_button();
+void draw_active_page();
+CANVAS_ELEMENT* raycast_canvas(POS);
+void input_to_field(CANVAS_ELEMENT*);
 
 void on_click(ALLEGRO_EVENT, CANVAS*);
 void select_element(CANVAS_ELEMENT*);

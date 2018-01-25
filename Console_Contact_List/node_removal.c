@@ -1,6 +1,12 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "list.h"
+#include "node_removal.h"
+
+extern CANVAS active_page;
+extern list contacts;
+
+void delete_from_canvas(int id) {
+	delete_node(&contacts, id);
+	print_list_to_canvas(&active_page, contacts.first);
+}
 
 // delete by id
 void delete_node(list *l, int id) {

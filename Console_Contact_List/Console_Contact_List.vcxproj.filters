@@ -140,6 +140,9 @@
     <ClInclude Include="node_search.h">
       <Filter>Header Files\Node</Filter>
     </ClInclude>
+    <ClInclude Include="node_removal.h">
+      <Filter>Header Files\Node</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
