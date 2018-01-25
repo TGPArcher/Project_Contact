@@ -1,4 +1,3 @@
-﻿  SL.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\sl.c(48): warning C4047: 'initializing': 'Node *' differs in levels of indirection from 'int'
+﻿  Main.c
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)

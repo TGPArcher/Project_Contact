@@ -13,7 +13,7 @@ IMAGE create_image(ALLEGRO_BITMAP *image, ANCHORS anchors, int flags);
 CONTACT create_contact(RECTANGLE main_body, RECTANGLE color_body, TEXT name_text, TEXT number_text, int count);
 I_BUTTON create_i_button(IMAGE, ALLEGRO_BITMAP*, ALLEGRO_BITMAP*, ANCHORS, void(*));
 T_BUTTON create_t_button(TEXT, RECTANGLE, RECTANGLE, void(*));
-INPUT_FIELD create_i_field(TEXT, LINE, ANCHORS);
+INPUT_FIELD create_i_field(TEXT, LINE, ANCHORS, void(*), void(*));
 
 DATA create_r_data(RECTANGLE rectangle);
 DATA create_l_data(LINE line);
@@ -78,6 +78,7 @@ CANVAS_ELEMENT* e_init_tbutton(
 
 CANVAS_ELEMENT* e_init_ifield(
 	char*, char*, int, ALLEGRO_COLOR,
-	ANCHORS, ALLEGRO_COLOR, int);
+	ANCHORS, ALLEGRO_COLOR, int,
+	void(*), void(*));
 
 POS recalculate_anchors(POS, POS, int);

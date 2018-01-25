@@ -3,7 +3,7 @@
 #include <string.h>
 #include "list.h"
 
-extern new_node_d(char*, char*);
+extern struct Node* new_node(char*, char*);
 extern void delete_node(list*, int);
 
 struct data {
@@ -45,7 +45,7 @@ void load_contacts(list *l) {
 		struct data tmp_data;
 
 		fread(&tmp_data, sizeof(struct data), 1, f);
-		struct Node *tmp = new_node_d(tmp_data.name, tmp_data.phone_nr);
+		struct Node *tmp = new_node(tmp_data.name, tmp_data.phone_nr);
 
 		if (l->first == NULL) {
 			l->first = tmp;

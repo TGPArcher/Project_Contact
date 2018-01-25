@@ -70,6 +70,9 @@ typedef struct {
 	TEXT text;
 	LINE support_line;
 	ANCHORS hitbox;
+
+	void(*on_exit)();
+	void(*on_change)();
 }INPUT_FIELD;
 
 typedef union {

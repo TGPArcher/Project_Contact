@@ -1,20 +1,18 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "list.h"
+#include "node_search.h"
+extern CANVAS active_page;
 
-extern void print_node(struct Node*);
-
-void search_by_name(list *c) {
-	char search[21];
-	printf("What name you want to search?\n");
-	scanf_s("%20s", &search, 21);
+void search_by_name(list *c, char *search) {
+	list filtered_list = { NULL, NULL };
 
 	struct Node *tmp = c->first;
+
 	while (tmp != NULL) {
 		if (strstr(tmp->name, search) != NULL)
-			print_node(tmp);
+			filtered_list.last = add_node_to_end(&filtered_list, new_node(tmp->name, tmp->phone_nr));
 
 		tmp = tmp->next_node;
 	}
+
+	if (filtered_list.first)
+		print_list_to_canvas(&active_page, filtered_list.first);
 }
