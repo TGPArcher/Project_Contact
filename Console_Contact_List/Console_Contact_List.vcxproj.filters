@@ -99,6 +99,9 @@
     <ClCompile Include="search_button.c">
       <Filter>Source Files\Elements</Filter>
     </ClCompile>
+    <ClCompile Include="node_list_removal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h">

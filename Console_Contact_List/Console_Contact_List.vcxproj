@@ -164,6 +164,7 @@
     <ClCompile Include="c_pages.c" />
     <ClCompile Include="element_input_field.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="node_list_removal.c" />
     <ClCompile Include="on_click.c" />
     <ClCompile Include="node_creation.c" />
     <ClCompile Include="node_removal.c" />

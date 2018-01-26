@@ -13,6 +13,5 @@ void search_by_name(list *c, char *search) {
 		tmp = tmp->next_node;
 	}
 
-	if (filtered_list.first)
-		print_list_to_canvas(&active_page, filtered_list.first);
+	print_list_to_canvas(&active_page, filtered_list.first);
 }
