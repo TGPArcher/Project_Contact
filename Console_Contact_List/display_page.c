@@ -52,6 +52,9 @@ CANVAS display_page() {
 }
 
 void print_list_to_canvas(CANVAS *canvas, struct Node *list) {
+	//removing the last list
+	canvas->layers[2].elements = canvas_list_removal(canvas->layers[2].elements);
+
 	CANVAS_ELEMENT *last = NULL;
 	struct Node *tmp = list;
 	int count = 0;
@@ -96,6 +99,9 @@ void remove_delete_button() {
 }
 
 void add_delete_button(ANCHORS anchors) {
+	//remove the last list
+	active_page.layers[1].elements = canvas_list_removal(active_page.layers[1].elements);
+
 	active_page.layers[1].elements = e_init_ibutton(
 		"delete_icon_0.png", "delete_icon_1.png", "delete_icon_1.png",
 		create_anchors(create_pos(440, anchors.upper.y + 25), create_pos(40, 50)),

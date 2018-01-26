@@ -2,6 +2,7 @@
 #include "list.h"
 #include "canvas_ui.h"
 #include "c_init_elements.h"
+#include "node_list_removal.h"
 
 //extern
 void activate_search_bar();

@@ -1,6 +1,4 @@
-#include <stdlib.h>
-#include "list.h"
-#include "canvas_ui.h"
+#include "node_list_removal.h"
 
 void node_list_removal(struct Node *first) {
 	struct Node *tmp = first;
@@ -16,14 +14,21 @@ void node_list_removal(struct Node *first) {
 	}
 }
 
-void canvas_list_removal(CANVAS_ELEMENT *first) {
+CANVAS_ELEMENT* canvas_list_removal(CANVAS_ELEMENT *first) {
 
-	while (first) {
-		CANVAS_ELEMENT *tmp = first;
+	while (first && first->next) {
+		CANVAS_ELEMENT *tmp = first, *remove = NULL;
 
-		while (tmp->next)
+		while (tmp->next) {
+			remove = tmp;
 			tmp = tmp->next;
+		}
 
+		remove->next = NULL; 
 		free(tmp);
 	}
+
+	free(first);
+
+	return NULL;
 }
