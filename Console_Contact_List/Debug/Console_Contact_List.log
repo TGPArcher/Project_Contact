@@ -1,4 +1,5 @@
-﻿  node_creation.c
-c:\users\tgp\documents\github\project_contact\console_contact_list\node_creation.c(35): warning C4133: 'initializing': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+﻿  on_click.c
+  node_removal.c
+  Generating Code...
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.exe
   Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Debug\Console_Contact_List.pdb (Full PDB)
