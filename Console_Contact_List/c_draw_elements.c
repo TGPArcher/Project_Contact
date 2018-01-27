@@ -24,7 +24,7 @@ void draw_text(TEXT text) {
 		text.font,
 		text.color,
 		text.anchor.x,
-		text.anchor.y,
+		text.anchor.y + 10,
 		text.flags,
 		text.text);
 }

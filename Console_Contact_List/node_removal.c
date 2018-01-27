@@ -4,8 +4,10 @@ extern CANVAS active_page;
 extern list contacts;
 
 void delete_from_canvas(int count) {
-	delete_node(&contacts, count);
-	print_list_to_canvas(&active_page, contacts.first);
+	if (count >= 0) {
+		delete_node(&contacts, count);
+		print_list_to_canvas(&active_page, contacts.first);
+	}
 }
 
 // delete by pos

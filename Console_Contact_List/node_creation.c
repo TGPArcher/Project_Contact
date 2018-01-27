@@ -34,10 +34,30 @@ void add_new_contact() {
 	CANVAS_ELEMENT *tmp1 = active_page.layers[0].elements;
 	CANVAS_ELEMENT *tmp2 = tmp1->next;
 
-	struct Node *node = new_node(tmp1->data.input_field.text.text, tmp2->data.input_field.text.text);
+	if (tmp1->data.input_field.text.text != "Name" &&
+		tmp2->data.input_field.text.text != "Number" &&
+		tmp1->data.input_field.text.text != "Invalid name" &&
+		tmp2->data.input_field.text.text != "Invalid number") {
 
-	contacts.last = add_node_to_end(&contacts, node);
+		if (strlen(tmp1->data.input_field.text.text) <= 20 &&
+			strlen(tmp2->data.input_field.text.text) <= 10) {
 
-	set_display_page();
-	draw_active_page();
+			struct Node *node = new_node(tmp1->data.input_field.text.text, tmp2->data.input_field.text.text);
+
+			contacts.last = add_node_to_end(&contacts, node);
+
+			set_display_page();
+		}
+		else if (strlen(tmp1->data.input_field.text.text) > 20)
+			tmp1->data.input_field.text.text = "Too long";
+		else if (strlen(tmp2->data.input_field.text.text) > 10)
+			tmp2->data.input_field.text.text = "Too long";
+	}
+	else {
+		if (tmp1->data.input_field.text.text == "Name")
+			tmp1->data.input_field.text.text = "Invalid name";
+		if (tmp2->data.input_field.text.text == "Number")
+			tmp2->data.input_field.text.text = "Invalid number";
+	}
+		draw_active_page();
 }
