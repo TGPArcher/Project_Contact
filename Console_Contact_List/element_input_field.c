@@ -3,7 +3,7 @@
 extern list contacts;
 
 void input_to_field(CANVAS_ELEMENT *input_field) {
-	input_field->data.input_field.support_line.color = al_map_rgb(229, 66, 48);
+	input_field->data.input_field.support_line.color = al_color_html("#b71c1c");
 	draw_active_page();
 
 	ALLEGRO_EVENT_QUEUE *event_queue = al_create_event_queue();

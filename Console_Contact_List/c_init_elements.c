@@ -203,13 +203,13 @@ CANVAS_ELEMENT* e_init_contact(
 					create_anchors(create_pos(M.x, M.y), create_pos(M.x + min_size.x, M.y + min_size.y)),
 					m_color),
 				create_text(
-					al_load_ttf_font("javatext.ttf", 25, NULL),
+					al_load_ttf_font("Roboto.ttf", 25, NULL),
 					create_pos(name_pos.x, M.y + name_pos.y),
 					name_color,
 					NULL,
 					name),
 				create_text(
-					al_load_ttf_font("javatext.ttf", 25, NULL),
+					al_load_ttf_font("Roboto.ttf", 25, NULL),
 					create_pos(nr_pos.x, M.y + nr_pos.y),
 					nr_color,
 					NULL,

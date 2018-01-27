@@ -38,11 +38,20 @@ void add_new_contact() {
 		tmp2->data.input_field.text.text != "Number" &&
 		tmp1->data.input_field.text.text != "Invalid name" &&
 		tmp2->data.input_field.text.text != "Invalid number") {
-		struct Node *node = new_node(tmp1->data.input_field.text.text, tmp2->data.input_field.text.text);
 
-		contacts.last = add_node_to_end(&contacts, node);
+		if (strlen(tmp1->data.input_field.text.text) <= 20 &&
+			strlen(tmp2->data.input_field.text.text) <= 10) {
 
-		set_display_page();
+			struct Node *node = new_node(tmp1->data.input_field.text.text, tmp2->data.input_field.text.text);
+
+			contacts.last = add_node_to_end(&contacts, node);
+
+			set_display_page();
+		}
+		else if (strlen(tmp1->data.input_field.text.text) > 20)
+			tmp1->data.input_field.text.text = "Too long";
+		else if (strlen(tmp2->data.input_field.text.text) > 10)
+			tmp2->data.input_field.text.text = "Too long";
 	}
 	else {
 		if (tmp1->data.input_field.text.text == "Name")

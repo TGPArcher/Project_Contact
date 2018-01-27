@@ -10,12 +10,11 @@ void on_click(ALLEGRO_EVENT ev, CANVAS *canvas) {
 }
 
 void select_element(CANVAS_ELEMENT *element) {
-	int remove_button_count = -1;
+	int remove_button = -1;
 
 	if (selected_element)
 		if (selected_element->type == 4) {
-			remove_button_count = selected_element->data.contact.count;
-			remove_delete_button();
+			remove_button = selected_element->data.contact.count;
 		}
 
 
@@ -26,7 +25,9 @@ void select_element(CANVAS_ELEMENT *element) {
 		select_effect(element, -1);
 
 		if (element->type == 5)
-			element->data.i_button.f(remove_button_count);
+			element->data.i_button.f(remove_button);
+		
+			remove_delete_button();
 
 		if (element->type == 6)
 			element->data.t_button.f();
@@ -37,6 +38,8 @@ void select_element(CANVAS_ELEMENT *element) {
 		if (element->type == 4)
 			add_delete_button(element->data.contact.main_body.anchors);
 	}
+	else
+		remove_delete_button();
 }
 
 void select_effect(CANVAS_ELEMENT *element, int operation) {
