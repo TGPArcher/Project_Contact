@@ -23,6 +23,7 @@ Extract files from zip and open project solution using Visual Studio
 
 ## Built with
 [Visual Studio Communtiy 2015](https://www.visualstudio.com/vs/community/) - IDE
+
 [Allegro 5](http://liballeg.org) - Game Library
 
 ## Authors
