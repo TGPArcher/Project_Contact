@@ -167,6 +167,7 @@
     <ClCompile Include="element_input_field.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="node_list_removal.c" />
+    <ClCompile Include="node_sort.c" />
     <ClCompile Include="on_click.c" />
     <ClCompile Include="node_creation.c" />
     <ClCompile Include="node_removal.c" />
@@ -191,6 +192,7 @@
     <ClInclude Include="node_list_removal.h" />
     <ClInclude Include="node_removal.h" />
     <ClInclude Include="node_search.h" />
+    <ClInclude Include="node_sort.h" />
     <ClInclude Include="on_click.h" />
     <ClInclude Include="on_hover.h" />
     <ClInclude Include="on_scroll.h" />

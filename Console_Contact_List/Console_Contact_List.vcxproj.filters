@@ -102,6 +102,9 @@
     <ClCompile Include="node_list_removal.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="node_sort.c">
+      <Filter>Source Files\Node</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="list.h">
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Colors.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="node_sort.h">
+      <Filter>Header Files\Node</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

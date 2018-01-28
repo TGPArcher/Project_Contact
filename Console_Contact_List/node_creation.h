@@ -4,6 +4,7 @@
 #include <string.h>
 #include "list.h"
 #include "canvas_ui.h"
+#include "node_sort.h"
 
 extern void set_display_page();
 extern void draw_active_page();

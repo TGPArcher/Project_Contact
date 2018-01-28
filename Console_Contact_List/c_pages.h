@@ -1,5 +1,5 @@
 #pragma once
-#include "list.h"
+#include "node_sort.h"
 #include "c_init_elements.h"
 
 extern void load_contacts(list*);

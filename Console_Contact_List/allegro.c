@@ -44,6 +44,7 @@ void create_display(int w, int h, int flag, char *title) {
 	ALLEGRO_DISPLAY *display;
 
 	al_set_new_display_flags(flag);
+	al_set_new_display_flags(ALLEGRO_NOFRAME);
 	al_set_new_window_title(title);
 
 	if ((display = al_create_display(w, h)) == NULL)

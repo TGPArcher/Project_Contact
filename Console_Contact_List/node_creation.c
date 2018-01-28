@@ -45,6 +45,7 @@ void add_new_contact() {
 			struct Node *node = new_node(tmp1->data.input_field.text.text, tmp2->data.input_field.text.text);
 
 			contacts.last = add_node_to_end(&contacts, node);
+			sort_list(&contacts);
 
 			set_display_page();
 		}

@@ -5,6 +5,7 @@ list contacts = { NULL, NULL };
 
 void canvas_data_init() {
 	load_contacts(&contacts);
+	sort_list(&contacts);
 
 	set_display_page();
 	draw_active_page();
