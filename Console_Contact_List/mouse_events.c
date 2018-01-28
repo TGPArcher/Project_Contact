@@ -73,7 +73,7 @@ CANVAS_ELEMENT* raycast_canvas(POS cursor_pos) {
 					return tmp;
 			}
 
-			tmp = tmp->next;
+			tmp = (CANVAS_ELEMENT*)tmp->next;
 		}
 	}
 

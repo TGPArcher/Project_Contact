@@ -36,6 +36,8 @@ ALLEGRO_COLOR get_element_color(CANVAS_ELEMENT *element) {
 		case 6:
 			return element->data.t_button.background.color;
 			break;
+		default:
+			return (ALLEGRO_COLOR) { .r = 0, .g = 0, .b = 0 };
 		}
 	else
 		return (ALLEGRO_COLOR) { .r = 0, .g = 0, .b = 0 };

@@ -2,7 +2,7 @@
 
 CANVAS_ELEMENT *selected_element = NULL;
 
-void on_click(ALLEGRO_EVENT ev, CANVAS *canvas) {
+void on_click(ALLEGRO_EVENT ev) {
 	CANVAS_ELEMENT *test = raycast_canvas(create_pos(ev.mouse.x, ev.mouse.y));
 
 	select_element(test);

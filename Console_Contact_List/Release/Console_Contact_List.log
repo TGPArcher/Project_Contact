@@ -1,7 +1,70 @@
-﻿  Source.c
-Source.c(31): warning C4098: 'main': 'void' function returning a value
+﻿  add_pages.c
+add_pages.c(25): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(26): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(29): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(30): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(33): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(34): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(37): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(38): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(41): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(42): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(47): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(48): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+add_pages.c(53): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+  allegro.c
+  c_draw.c
+c_draw.c(47): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+  c_draw_elements.c
+  display_page.c
+display_page.c(24): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+display_page.c(25): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+display_page.c(34): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+display_page.c(35): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+display_page.c(40): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+display_page.c(41): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+display_page.c(50): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+display_page.c(77): warning C4133: '=': incompatible types - from 'Node *' to 'CANVAS_ELEMENT *'
+display_page.c(86): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+display_page.c(88): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+  mouse_events.c
+mouse_events.c(25): warning C4013: 'on_click' undefined; assuming extern returning int
+mouse_events.c(33): warning C4013: 'on_hover' undefined; assuming extern returning int
+mouse_events.c(35): warning C4013: 'on_scroll' undefined; assuming extern returning int
+mouse_events.c(76): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+  c_init_elements.c
+c_init_elements.c(171): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c_init_elements.c(171): warning C4024: 'al_load_ttf_font': different types for formal and actual parameter 3
+c_init_elements.c(206): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c_init_elements.c(206): warning C4024: 'al_load_ttf_font': different types for formal and actual parameter 3
+c_init_elements.c(209): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c_init_elements.c(209): warning C4024: 'create_text': different types for formal and actual parameter 4
+c_init_elements.c(212): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c_init_elements.c(212): warning C4024: 'al_load_ttf_font': different types for formal and actual parameter 3
+c_init_elements.c(215): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c_init_elements.c(215): warning C4024: 'create_text': different types for formal and actual parameter 4
+c_init_elements.c(231): warning C4028: formal parameter 8 different from declaration
+c_init_elements.c(256): warning C4028: formal parameter 10 different from declaration
+  c_pages.c
+  element_input_field.c
+  Main.c
+  node_list_removal.c
+node_list_removal.c(10): warning C4133: 'initializing': incompatible types - from 'Node *' to 'CANVAS_ELEMENT *'
+node_list_removal.c(24): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+  node_sort.c
+  on_click.c
+  node_creation.c
+node_creation.c(35): warning C4133: 'initializing': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+  node_removal.c
+  node_search.c
+  on_hover.c
+  on_scroll.c
+on_scroll.c(18): warning C4133: '=': incompatible types - from 'CANVAS_ELEMENT *' to 'CANVAS_ELEMENT *'
+  search_button.c
+  SL.c
   Generating code
-  All 12 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+c:\users\tgp\documents\github\project_contact\console_contact_list\on_hover.c(42): warning C4715: 'get_element_color': not all control paths return a value
+  All 86 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  Console_Contact_List.vcxproj -> C:\Users\TGP\Desktop\Vixan\Game\Console_Contact_List\Release\Console_Contact_List.exe
-  Console_Contact_List.vcxproj -> C:\Users\TGP\Desktop\Vixan\Game\Console_Contact_List\Release\Console_Contact_List.pdb (Full PDB)
+  Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Release\Console_Contact_List.exe
+  Console_Contact_List.vcxproj -> C:\Users\TGP\Documents\GitHub\Project_Contact\Release\Console_Contact_List.pdb (Full PDB)

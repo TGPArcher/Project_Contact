@@ -1,9 +1,13 @@
 #pragma once
-#include <stdlib.h>
 #include <stdio.h>
-#include "canvas_ui.h"
+#include <stdlib.h>
+#include <allegro5/allegro.h>
 #include "list.h"
+#include "canvas_ui.h"
 #include "c_init_elements.h"
+#include "on_click.h"
+#include "on_hover.h"
+#include "on_scroll.h"
 
 extern void save_contacts(list*);
 
